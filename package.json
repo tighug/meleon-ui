@@ -32,7 +32,9 @@
     "stylelint-config-recommended": "^3.0.0",
     "stylelint-order": "^4.1.0",
     "stylelint-prettier": "^1.1.2",
-    "typescript": "^3.9.7"
+    "typescript": "^3.9.7",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
   },
   "scripts": {
     "storybook": "start-storybook -p 6006",
