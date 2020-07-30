@@ -1,0 +1,10 @@
+{
+  "name": "meleon-ui",
+  "version": "0.0.1",
+  "description": "Material Component Framework for React",
+  "main": "index.js",
+  "repository": "https://github.com/tighug/meleon-ui.git",
+  "author": "tighug <kapuriko123@gmail.com>",
+  "license": "MIT",
+  "private": true
+}
