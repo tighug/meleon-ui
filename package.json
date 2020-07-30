@@ -6,5 +6,9 @@
   "repository": "https://github.com/tighug/meleon-ui.git",
   "author": "tighug <kapuriko123@gmail.com>",
   "license": "MIT",
-  "private": true
+  "private": true,
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
 }
