@@ -22,6 +22,7 @@
     "@storybook/addon-links": "^5.3.19",
     "@storybook/addons": "^5.3.19",
     "@storybook/react": "^5.3.19",
+    "@types/styled-components": "^5.1.1",
     "@typescript-eslint/eslint-plugin": "^3.7.1",
     "@typescript-eslint/parser": "^3.7.1",
     "babel-loader": "^8.1.0",
