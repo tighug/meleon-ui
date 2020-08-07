@@ -1,14 +1,9 @@
 import React from "react";
-import { addParameters, addDecorator } from "@storybook/react";
+import { configure, addParameters, addDecorator } from "@storybook/react";
 import { themes } from "@storybook/theming";
-import { ThemeProvider } from "styled-components";
-import standard from "../src/theme/standard";
+import themeDecorator from "./themeDecorator";
 
-const ThemeDecorator = (storyFn) => (
-  <ThemeProvider theme={standard}>{storyFn()}</ThemeProvider>
-);
-
-addDecorator(ThemeDecorator);
+addDecorator(themeDecorator);
 addParameters({
   options: {
     theme: themes.dark,
