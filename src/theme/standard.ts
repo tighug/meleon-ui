@@ -13,9 +13,9 @@ export default {
       dark: palette.deepOrange.darken2,
     },
     bg: {
-      primary: palette.darkText.primary,
-      secondary: palette.darkText.secondary,
-      disabled: palette.darkText.disabled,
+      primary: palette.grey.darken4,
+      secondary: palette.grey.darken3,
+      disabled: palette.grey.darken2,
     },
     text: {
       primary: palette.lightText.primary,
