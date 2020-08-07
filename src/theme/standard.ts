@@ -1,7 +1,7 @@
-import palette from "meleon-palette";
+import * as palette from "meleon-palette";
 
 export default {
-  color: {
+  colors: {
     primary: {
       light: palette.green.lighten2,
       base: palette.green.base,
@@ -12,16 +12,16 @@ export default {
       base: palette.deepOrange.base,
       dark: palette.deepOrange.darken2,
     },
-    background: {
-      primary: palette.lightText.primary,
-      secondary: palette.lightText.secondary,
-      disabled: palette.lightText.disabled,
-    },
-    text: {
+    bg: {
       primary: palette.darkText.primary,
       secondary: palette.darkText.secondary,
       disabled: palette.darkText.disabled,
-      dividers: palette.darkText.dividers,
+    },
+    text: {
+      primary: palette.lightText.primary,
+      secondary: palette.lightText.secondary,
+      disabled: palette.lightText.disabled,
+      dividers: palette.lightText.dividers,
     },
     icon: {
       active: palette.darkIcons.active,
