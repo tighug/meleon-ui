@@ -1,4 +1,4 @@
-import palette from "meleon-palette";
+import * as palette from "meleon-palette";
 
 export default {
   color: {
