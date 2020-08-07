@@ -224,19 +224,70 @@ export const display = () => (
   </div>
 );
 
-// TODO: Add shadow
-// export const shadow = () => (
-//   <Box bg="transparent" display="flex">
-//     <Box height={100} width={100} boxShadow="medium">
-//       0
-//     </Box>
-//     <Box boxShadow="">1</Box>
-//     <Box boxShadow="">2</Box>
-//     <Box boxShadow="">3</Box>
-//     <Box boxShadow="">4</Box>
-//     <Box boxShadow="">8</Box>
-//   </Box>
-// );
+export const shadow = () => (
+  <Box display="flex" justifyContent="space-between">
+    <Box
+      color="text.primary"
+      bg="bg.primary"
+      height={100}
+      width={100}
+      p={2}
+      elevation={0}
+    >
+      0
+    </Box>
+    <Box
+      color="text.primary"
+      bg="bg.primary"
+      height={100}
+      width={100}
+      p={2}
+      elevation={1}
+    >
+      1
+    </Box>
+    <Box
+      color="text.primary"
+      bg="bg.primary"
+      height={100}
+      width={100}
+      p={2}
+      elevation={2}
+    >
+      2
+    </Box>
+    <Box
+      color="text.primary"
+      bg="bg.primary"
+      height={100}
+      width={100}
+      p={2}
+      elevation={3}
+    >
+      3
+    </Box>
+    <Box
+      color="text.primary"
+      bg="bg.primary"
+      height={100}
+      width={100}
+      p={2}
+      elevation={4}
+    >
+      4
+    </Box>
+    <Box
+      color="text.primary"
+      bg="bg.primary"
+      height={100}
+      width={100}
+      p={2}
+      elevation={8}
+    >
+      8
+    </Box>
+  </Box>
+);
 
 export const palette = () => (
   <div>

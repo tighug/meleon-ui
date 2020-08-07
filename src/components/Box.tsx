@@ -21,7 +21,8 @@ import {
   PositionProps,
   ShadowProps,
 } from "styled-system";
-import { darkText, lightText } from "meleon-palette";
+import { lightText } from "meleon-palette";
+import boxShadow from "../utils/boxShadow";
 
 type BaseProps = {
   children?: ReactNode;
@@ -44,6 +45,10 @@ type TextOverflowProps = {
   textOverflow?: "clip" | "ellipsis";
 };
 
+type ElevationProps = {
+  elevation?: number;
+};
+
 export type BoxProps = BaseProps &
   SpaceProps &
   ColorProps &
@@ -55,12 +60,13 @@ export type BoxProps = BaseProps &
   BorderProps &
   PositionProps &
   ShadowProps &
-  TextOverflowProps;
+  TextOverflowProps &
+  ElevationProps;
 
 export default function Box({
   borderWidth = 0,
   borderStyle = "solid",
-  borderColor = darkText.primary,
+  borderColor = lightText.dividers,
   ...props
 }: BoxProps) {
   return (
@@ -86,5 +92,6 @@ const Wrapper = styled.div<BoxProps>`
   ${shadow}
 
   text-overflow: ${(props) => props.textOverflow};
-  white-space: ${(props) => props.whiteSpace}
+  white-space: ${(props) => props.whiteSpace};
+  box-shadow: ${(props) => boxShadow(props.elevation)};
 `;
