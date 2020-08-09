@@ -1,5 +1,6 @@
 import { css } from "styled-components";
-import space, { Size } from "../../utils/space";
+
+export type Size = number | "auto";
 
 export type MarginProps = {
   ma?: Size;
@@ -23,6 +24,12 @@ export type PaddingProps = {
 
 export type SpacingProps = MarginProps & PaddingProps;
 
+function space(size: Size = 0): string {
+  if (size === "auto") return size;
+
+  return `${size * 4}px`;
+}
+
 export const margin = css<MarginProps>`
   margin: ${(props) => space(props.ma)};
   margin-top: ${(props) => space(props.mt || props.my)};
@@ -39,7 +46,7 @@ export const padding = css<PaddingProps>`
   padding-left: ${(props) => space(props.pl || props.px)};
 `;
 
-export const spacing = css<SpaceProps>`
+export const spacing = css<SpacingProps>`
   ${margin}
   ${padding}
 `;
