@@ -13,8 +13,7 @@ export type BorderProps = {
 };
 
 export const border = css<BorderProps>`
-  border-color: ${(props) =>
-    props.borderColor || props.theme.color.bg.disabled};
+  border-color: ${(props) => props.borderColor};
   border-style: ${(props) => props.borderStyle};
   border-width: ${(props) => props.border}px;
   border-top-width: ${(props) => props.borderTop}px;
