@@ -2,7 +2,7 @@ import { css } from "styled-components";
 
 export type DisplayProps = {
   display?: "none" | "block" | "inline" | "inline-block" | "flex";
-  overflow?: "none" | "block" | "inline" | "inline-block" | "flex";
+  overflow?: "auto" | "visible" | "hidden" | "clip" | "scroll";
   textOverflow?: "clip" | "ellipsis";
   whiteSpace?:
     | "normal"
