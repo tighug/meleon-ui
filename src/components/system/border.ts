@@ -14,11 +14,10 @@ export type BorderProps = {
 
 export const border = css<BorderProps>`
   border-color: ${(props) => props.borderColor};
-  border-style: ${(props) => props.borderStyle};
-  border-width: ${(props) => props.border}px;
-  border-top-width: ${(props) => props.borderTop}px;
-  border-right-width: ${(props) => props.borderRight}px;
-  border-bottom-width: ${(props) => props.borderBottom}px;
-  border-left-width: ${(props) => props.borderLeft}px;
+  border-style: ${(props) => props.borderStyle || "solid"};
+  border-top-width: ${(props) => props.borderTop || props.border || 0}px;
+  border-right-width: ${(props) => props.borderRight || props.border || 0}px;
+  border-bottom-width: ${(props) => props.borderBottom || props.border || 0}px;
+  border-left-width: ${(props) => props.borderLeft || props.border || 0}px;
   border-radius: ${(props) => props.borderRadius};
 `;
