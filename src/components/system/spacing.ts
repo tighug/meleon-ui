@@ -31,19 +31,18 @@ function space(size: Size = 0): string {
 }
 
 export const margin = css<MarginProps>`
-  margin: ${(props) => space(props.ma)};
-  margin-top: ${(props) => space(props.mt || props.my)};
-  margin-right: ${(props) => space(props.mr || props.mx)};
-  margin-bottom: ${(props) => space(props.mb || props.my)};
-  margin-left: ${(props) => space(props.ml || props.mx)};
+  margin-top: ${(props) => space(props.mt || props.my || props.ma)};
+  margin-right: ${(props) => space(props.mr || props.mx || props.ma)};
+  margin-bottom: ${(props) => space(props.mb || props.my || props.ma)};
+  margin-left: ${(props) => space(props.ml || props.mx || props.ma)};
 `;
 
 export const padding = css<PaddingProps>`
   padding: ${(props) => space(props.pa)};
-  padding-top: ${(props) => space(props.pt || props.py)};
-  padding-right: ${(props) => space(props.pr || props.px)};
-  padding-bottom: ${(props) => space(props.pb || props.py)};
-  padding-left: ${(props) => space(props.pl || props.px)};
+  padding-top: ${(props) => space(props.pt || props.py || props.pa)};
+  padding-right: ${(props) => space(props.pr || props.px || props.pa)};
+  padding-bottom: ${(props) => space(props.pb || props.py || props.pa)};
+  padding-left: ${(props) => space(props.pl || props.px || props.pa)};
 `;
 
 export const spacing = css<SpacingProps>`
