@@ -27,10 +27,10 @@ export type BoxProps = BaseProps &
   TypographyProps;
 
 export default function Box({ ...props }: BoxProps) {
-  return <Wrapper {...props} />;
+  return <BaseBox {...props} />;
 }
 
-const Wrapper = styled.div<BoxProps>`
+export const BaseBox = styled.div<BoxProps>`
   ${border}
   ${display}
   ${flexbox}
