@@ -1,14 +1,14 @@
-import React from "react";
-import { configure, addParameters, addDecorator } from "@storybook/react";
-import { themes } from "@storybook/theming";
+import { addDecorator } from "@storybook/react";
 import themeDecorator from "./themeDecorator";
+import { themes } from "@storybook/theming";
 import "ress";
 import "../src/index.css";
 import "@mdi/font/css/materialdesignicons.css";
 
 addDecorator(themeDecorator);
-addParameters({
-  options: {
+
+export const parameters = {
+  docs: {
     theme: themes.dark,
   },
-});
+};
