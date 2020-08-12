@@ -2,16 +2,9 @@ import * as palette from "meleon-palette";
 
 export default {
   colors: {
-    primary: {
-      light: palette.green.lighten2,
-      base: palette.green.base,
-      dark: palette.green.darken2,
-    },
-    secondary: {
-      light: palette.deepOrange.lighten2,
-      base: palette.deepOrange.base,
-      dark: palette.deepOrange.darken2,
-    },
+    primary: palette.green.base,
+    secondary: palette.deepOrange.base,
+    normal: "#272727",
     bg: {
       primary: palette.grey.darken4,
       secondary: palette.grey.darken3,
@@ -28,4 +21,6 @@ export default {
       inactive: palette.darkIcons.inactive,
     },
   },
+
+  fontSizes: [12, 14, 16, 20, 24, 32],
 };
