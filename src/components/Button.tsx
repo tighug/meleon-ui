@@ -1,29 +1,49 @@
 import React, { ReactNode, MouseEventHandler } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import classnames from "classnames";
 import Ripples from "./Ripples";
-import { BaseBox } from "./system/Box";
+import { boxShadow } from "./system/shadow";
 
-type Size = "xs" | "sm" | "md" | "lg" | "xl";
+const fontSize = {
+  xs: "10px",
+  sm: "12px",
+  md: "14px",
+  lg: "16px",
+  xl: "18px",
+} as const;
 
 export type ButtonProps = {
   children: ReactNode;
 
-  size?: Size;
+  /** Sets the font-size. */
+  size?: "xs" | "sm" | "md" | "lg" | "xl";
+  /** Sets the color. */
   color?: string;
 
   active?: boolean;
+  /** Applies 100% to the width. */
   block?: boolean;
+  /** Removes the box-shadow. */
   depressed?: boolean;
+  /** Disables the click. */
   disabled?: boolean;
+  /** Designates the button as a circle one. */
   fab?: boolean;
+  /** Designates the button as icon. */
   icon?: boolean;
+  /** Makes the background transparent and applies a border. */
   outlined?: boolean;
-  ripple?: boolean;
+  /** Makes the border-radius larger.  */
   rounded?: boolean;
+  /** Makes the background transparent. */
   text?: boolean;
+  /** Makes the border-radius zero. */
   tile?: boolean;
 
-  /** クリックイベント */
+  /** Applies the ripples effect on click. */
+  ripple?: boolean;
+
+  /** Event on click */
   onClick?: MouseEventHandler;
 };
 
@@ -43,25 +63,32 @@ export default function Button({
   text = false,
   ...props
 }: ButtonProps) {
+  const className = classnames({
+    active,
+    block,
+    depressed,
+    disabled,
+    fab,
+    icon,
+    outlined,
+    rounded,
+    text,
+    tile,
+  });
+
   return (
     <Ripples disabled={!ripple}>
       <Wrapper
-        as="button"
-        color={outlined || text ? color : "white"}
-        bgcolor={outlined || text ? "transparent" : color}
-        border={outlined ? 1 : 0}
-        borderColor={color}
-        borderRadius={tile ? "0px" : rounded ? "28px" : "4px"}
-        fontSize={fontSize(size)}
-        width={block ? "100%" : "auto"}
-        elevation={depressed || outlined || text ? 0 : 2}
+        className={className}
+        fontSize={fontSize[size]}
+        color={color}
         {...props}
       />
     </Ripples>
   );
 }
 
-const Wrapper = styled(BaseBox)`
+const Wrapper = styled.button<{ fontSize: string; color: string }>`
   position: relative;
   display: flex;
   align-items: center;
@@ -69,9 +96,15 @@ const Wrapper = styled(BaseBox)`
   height: calc(4em - 20px);
   padding: 0 1.2em;
   overflow: hidden;
+  font-size: ${(props) => props.fontSize};
   line-height: 22px;
+  color: white;
   text-transform: uppercase;
   letter-spacing: 0.09em;
+  background-color: ${(props) => props.color};
+  border: 0 solid;
+  border-radius: 4px;
+  box-shadow: ${boxShadow(2)};
 
   &:focus {
     outline: none;
@@ -93,21 +126,49 @@ const Wrapper = styled(BaseBox)`
   &:hover:before {
     opacity: 0.2;
   }
-`;
 
-function fontSize(size?: Size): string {
-  switch (size) {
-    case "xs":
-      return "10px";
-    case "sm":
-      return "12px";
-    case "md":
-      return "14px";
-    case "lg":
-      return "16px";
-    case "xl":
-      return "18px";
-    default:
-      return "14px";
+  &.block {
+    width: 100%;
   }
-}
+  &.depressed {
+    box-shadow: none;
+  }
+  &.disabled {
+    color: rgba(255, 255, 255, 0.3);
+    pointer-events: none;
+    background-color: rgba(255, 255, 255, 0.12);
+    box-shadow: none;
+  }
+  &.fab {
+    width: 4em;
+    height: 4em;
+    padding: 0;
+    border-radius: 50%;
+  }
+  &.icon {
+    width: calc(4em - 20px);
+    padding: 0;
+    color: ${(props) => props.color};
+    background-color: transparent;
+    border-radius: 50%;
+    box-shadow: none;
+  }
+  &.outlined {
+    color: ${(props) => props.color};
+    background-color: transparent;
+    border-color: currentColor;
+    border-width: 1px;
+    box-shadow: none;
+  }
+  &.rounded {
+    border-radius: 28px;
+  }
+  &.text {
+    color: ${(props) => props.color};
+    background-color: transparent;
+    box-shadow: none;
+  }
+  &.tile {
+    border-radius: 0;
+  }
+`;
