@@ -4,6 +4,7 @@ import { themes } from "@storybook/theming";
 import themeDecorator from "./themeDecorator";
 import "ress";
 import "../src/index.css";
+import "@mdi/font/css/materialdesignicons.css";
 
 addDecorator(themeDecorator);
 addParameters({
