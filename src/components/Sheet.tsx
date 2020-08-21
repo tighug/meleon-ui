@@ -1,26 +1,31 @@
 import React, { ReactNode } from "react";
+import classnames from "classnames";
 import Box from "./system/Box";
+import styled from "styled-components";
+import { strToColor } from "../utils/strToColor";
+import { boxShadow } from "./system/shadow";
+import { SizingProps, sizing } from "./system/sizing";
 
 export type SheetProps = {
   /** children */
   children?: ReactNode;
 
-  /** color */
+  /** Sets the color. */
   color?: string;
 
-  /** elevation */
+  /** Sets the elevation. */
   elevation?: number;
-  /** width */
+  /** Sets the width. */
   width?: number | string;
-  /** max width */
+  /** Sets the max-width. */
   maxWidth?: number | string;
-  /** min width */
+  /** Sets the min-width. */
   minWidth?: number | string;
-  /** height */
+  /** Sets the height. */
   height?: number | string;
-  /** max height*/
+  /** Sets the max-height. */
   maxHeight?: number | string;
-  /** min height */
+  /** Sets the min-height. */
   minHeight?: number | string;
 
   /** Removes elevation & adds a thin border. */
@@ -30,20 +35,49 @@ export type SheetProps = {
 };
 
 export default function Sheet({
-  color = "#272727",
+  color,
   elevation = 0,
   outlined = false,
   rounded = false,
   ...props
 }: SheetProps) {
+  const className = classnames({ outlined, rounded });
+
   return (
-    <Box
-      bgcolor={color}
-      elevation={outlined ? 0 : elevation}
-      border={outlined ? 1 : 0}
-      borderRadius={rounded ? "4px" : "0px"}
-      borderColor="rgba(255, 255, 255, 0.12)"
+    <Wrapper
+      className={className}
+      color={color}
+      elevation={elevation}
       {...props}
     />
   );
 }
+
+type WrapperProps = {
+  color?: string;
+  elevation: number;
+};
+
+const Wrapper = styled.div<WrapperProps & SizingProps>`
+  ${sizing}
+
+  background-color: ${(props) =>
+    strToColor(
+      strToColor("#272727", "bg.secondary", props.theme),
+      props.color,
+      props.theme
+    )};
+  border: 0 solid;
+  border-color: ${(props) =>
+    strToColor("rgba(255, 255, 255, 0.12)", "text.dividers", props.theme)};
+  border-radius: 0;
+  box-shadow: ${(props) => boxShadow(props.elevation)};
+
+  &.outlined {
+    border-width: 1px;
+    box-shadow: none;
+  }
+  &.rounded {
+    border-radius: 4px;
+  }
+`;

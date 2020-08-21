@@ -7,7 +7,9 @@ export default {
   component: Sheet,
 };
 
-export const sheet = () => <Sheet height={100} width="auto" />;
+export const sheet = () => (
+  <Sheet height={100} width="auto" color="secondary" />
+);
 
 export const outlined = () => <Sheet height={100} width="auto" outlined />;
 
