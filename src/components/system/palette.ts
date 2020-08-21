@@ -6,6 +6,6 @@ export type PaletteProps = {
 };
 
 export const palette = css<PaletteProps>`
-  color: ${(props) => props.color};
-  background-color: ${(props) => props.bgcolor};
+  color: ${(props) => props.color || "white"};
+  background-color: ${(props) => props.bgcolor || "transparent"};
 `;
