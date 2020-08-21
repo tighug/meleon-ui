@@ -10,7 +10,7 @@ const fontSize = {
   xl: "40px",
 } as const;
 
-interface IconProps {
+export type IconProps = {
   children: string;
 
   /** Sets the font-size. */
@@ -24,7 +24,7 @@ interface IconProps {
   left?: boolean;
   /** Places the icon on the right. (used inside a button) */
   right?: boolean;
-}
+};
 
 export default function Icon({
   children,
