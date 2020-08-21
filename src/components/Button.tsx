@@ -40,7 +40,7 @@ export type ButtonProps = {
   /** Makes the border-radius zero. */
   tile?: boolean;
 
-  /** Applies the ripples effect on click. */
+  /** Applies the ripple effect on click. */
   ripple?: boolean;
 
   /** Event on click */
@@ -88,7 +88,7 @@ export default function Button({
   );
 }
 
-const Wrapper = styled.button<{ fontSize: string; color: string }>`
+export const Wrapper = styled.button<{ fontSize: string; color: string }>`
   position: relative;
   display: flex;
   align-items: center;
@@ -96,15 +96,23 @@ const Wrapper = styled.button<{ fontSize: string; color: string }>`
   height: calc(4em - 20px);
   padding: 0 1.2em;
   overflow: hidden;
+  overflow: visible;
   font-size: ${(props) => props.fontSize};
+  font-weight: 500;
   line-height: 22px;
   color: white;
   text-transform: uppercase;
   letter-spacing: 0.09em;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
   background-color: ${(props) => props.color};
   border: 0 solid;
   border-radius: 4px;
   box-shadow: ${boxShadow(2)};
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.28s;
+  transition-property: box-shadow, transform, opacity;
 
   &:focus {
     outline: none;
