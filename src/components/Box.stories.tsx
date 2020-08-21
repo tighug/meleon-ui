@@ -7,6 +7,7 @@ export default {
   argTypes: {
     color: { control: "color" },
     bgcolor: { control: "color" },
+    borderColor: { control: "color" },
   },
 };
 
@@ -16,215 +17,148 @@ export const Basic = Template.bind({});
 
 Basic.args = {
   children: "Box",
-  color: "white",
   bgcolor: "black",
   width: 150,
   pa: 2,
-  ma: 2,
 };
 
-export const Width = () => (
-  <div>
-    <Box {...Basic.args} width="auto">
-      Width auto
-    </Box>
-    <Box {...Basic.args} width={150}>
-      Width 150px
-    </Box>
-    <Box {...Basic.args} width={300}>
-      Width 300px
-    </Box>
-    <Box {...Basic.args} width="75%">
-      Width 75%
-    </Box>
-  </div>
-);
+export const Width = () => {
+  const BaseBox = (args: BoxProps) => (
+    <Box bgcolor="black" pa={2} ma={2} {...args} />
+  );
 
-export const height = () => (
-  <Box display="flex" justifyContent="space-between" height={300}>
-    <Box {...Basic.args} height="auto">
-      Height auto
-    </Box>
-    <Box {...Basic.args} height={100}>
-      Height 100px
-    </Box>
-    <Box {...Basic.args} height={200}>
-      Height 200px
-    </Box>
-    <Box {...Basic.args} height="75%">
-      Height 75%
-    </Box>
-  </Box>
-);
+  return (
+    <div>
+      <BaseBox>auto</BaseBox>
+      <BaseBox width={150}>150px</BaseBox>
+      <BaseBox width={300}>300px</BaseBox>
+      <BaseBox width="75%">75%</BaseBox>
+    </div>
+  );
+};
 
-export const border = () => (
-  <div>
-    <Box display="flex" justifyContent="space-between" my={2}>
-      <Box
-        {...Basic.args}
-        height={100}
-        width={100}
-        borderTop={2}
-        borderColor="white"
-      />
-      <Box
-        {...Basic.args}
-        height={100}
-        width={100}
-        borderRight={2}
-        borderColor="white"
-      />
-      <Box
-        {...Basic.args}
-        height={100}
-        width={100}
-        borderBottom={2}
-        borderColor="white"
-      />
-      <Box
-        {...Basic.args}
-        height={100}
-        width={100}
-        borderLeft={2}
-        borderColor="white"
-      />
-    </Box>
-    <Box display="flex" justifyContent="space-between" my={2}>
-      <Box
-        {...Basic.args}
-        height={100}
-        width={100}
-        borderColor="red"
-        border={2}
-      />
-      <Box
-        {...Basic.args}
-        height={100}
-        width={100}
-        borderColor="green"
-        border={2}
-      />
-      <Box
-        {...Basic.args}
-        height={100}
-        width={100}
-        borderColor="blue"
-        border={2}
-      />
-    </Box>
-    <Box display="flex" justifyContent="space-between" my={2}>
-      <Box {...Basic.args} height={100} width={100} borderRadius="50%" />
-      <Box {...Basic.args} height={100} width={100} borderRadius="5px" />
-      <Box {...Basic.args} height={100} width={100} borderRadius="20px" />
-    </Box>
-    <Box display="flex" justifyContent="space-between" my={2}>
-      <Box
-        {...Basic.args}
-        height={100}
-        width={100}
-        border={2}
-        borderStyle="dotted"
-        borderColor="white"
-      />
-      <Box
-        {...Basic.args}
-        height={100}
-        width={100}
-        border={2}
-        borderStyle="double"
-        borderColor="white"
-      />
-      <Box
-        {...Basic.args}
-        height={100}
-        width={100}
-        border={2}
-        borderStyle="dashed"
-        borderColor="white"
-      />
-    </Box>
-  </div>
-);
+export const Height = () => {
+  const BaseBox = (args: BoxProps) => (
+    <Box bgcolor="black" width={100} pa={2} ma={2} {...args} />
+  );
 
-export const display = () => (
-  <div>
-    <Box>
-      <Box {...Basic.args} width="auto" display="inline">
-        inline
-      </Box>
-      <Box {...Basic.args} width="auto" display="inline">
-        inline
-      </Box>
+  return (
+    <Box display="flex" justifyContent="space-between" height={300}>
+      <BaseBox>auto</BaseBox>
+      <BaseBox height={100}>100px</BaseBox>
+      <BaseBox height={200}>200px</BaseBox>
+      <BaseBox height="75%">75%</BaseBox>
     </Box>
-    <Box my={3}>
-      <Box {...Basic.args} width="auto" display="block">
-        block
-      </Box>
-      <Box {...Basic.args} width="auto" display="block">
-        block
-      </Box>
-    </Box>
-    <Box my={3} whiteSpace="nowrap">
-      <Box {...Basic.args} overflow="hidden">
-        Overflow Hidden. Overflow Hidden. Overflow Hidden. Overflow Hidden.
-      </Box>
-      <Box {...Basic.args} overflow="auto">
-        Overflow Auto. Overflow Auto. Overflow Auto. Overflow Auto.
-      </Box>
-    </Box>
-    <Box mt={3} whiteSpace="nowrap">
-      <Box {...Basic.args} textOverflow="clip" overflow="hidden">
-        Text Overflow Clip. Text Overflow Clip.
-      </Box>
-      <Box {...Basic.args} textOverflow="ellipsis" overflow="hidden">
-        Text Overflow Ellipsis. Text Overflow Ellipsis.
-      </Box>
-    </Box>
-  </div>
-);
+  );
+};
 
-export const shadow = () => (
-  <Box display="flex" justifyContent="space-between">
-    <Box {...Basic.args} width={100} height={100} elevation={0}>
-      0
-    </Box>
-    <Box {...Basic.args} width={100} height={100} elevation={1}>
-      1
-    </Box>
-    <Box {...Basic.args} width={100} height={100} elevation={2}>
-      2
-    </Box>
-    <Box {...Basic.args} width={100} height={100} elevation={3}>
-      3
-    </Box>
-    <Box {...Basic.args} width={100} height={100} elevation={4}>
-      4
-    </Box>
-    <Box {...Basic.args} width={100} height={100} elevation={8}>
-      8
-    </Box>
-  </Box>
-);
+export const Border = () => {
+  const BaseBox = (args: BoxProps) => (
+    <Box bgcolor="black" width={100} height={100} ma={2} {...args} />
+  );
 
-export const palette = () => (
-  <div>
-    <Box color="red" bgcolor="black" ma={2} pa={2}>
-      Red
+  return (
+    <div>
+      <Box display="flex" justifyContent="space-between" my={2}>
+        <BaseBox borderTop={2} />
+        <BaseBox borderRight={2} />
+        <BaseBox borderBottom={2} />
+        <BaseBox borderLeft={2} />
+      </Box>
+      <Box display="flex" justifyContent="space-between" my={2}>
+        <BaseBox borderColor="red" border={2} />
+        <BaseBox borderColor="green" border={2} />
+        <BaseBox borderColor="blue" border={2} />
+      </Box>
+      <Box display="flex" justifyContent="space-between" my={2}>
+        <BaseBox borderRadius="50%" />
+        <BaseBox borderRadius="5px" />
+        <BaseBox borderRadius="20px" />
+      </Box>
+      <Box display="flex" justifyContent="space-between" my={2}>
+        <BaseBox border={2} borderStyle="dotted" />
+        <BaseBox border={2} borderStyle="double" />
+        <BaseBox border={2} borderStyle="dashed" />
+      </Box>
+    </div>
+  );
+};
+
+export const Display = () => {
+  const BaseBox = (args: BoxProps) => (
+    <Box bgcolor="black" pa={2} ma={2} {...args} />
+  );
+
+  return (
+    <div>
+      <Box>
+        <BaseBox display="inline">inline</BaseBox>
+        <BaseBox display="inline">inline</BaseBox>
+      </Box>
+      <Box my={3}>
+        <BaseBox display="block">block</BaseBox>
+        <BaseBox display="block">block</BaseBox>
+      </Box>
+      <Box my={3} whiteSpace="nowrap">
+        <BaseBox width={200} overflow="hidden">
+          Overflow Hidden. Overflow Hidden. Overflow Hidden. Overflow Hidden.
+        </BaseBox>
+        <BaseBox width={200} overflow="auto">
+          Overflow Auto. Overflow Auto. Overflow Auto. Overflow Auto.
+        </BaseBox>
+      </Box>
+      <Box mt={3} whiteSpace="nowrap">
+        <BaseBox width={200} textOverflow="clip" overflow="hidden">
+          Text Overflow Clip. Text Overflow Clip.
+        </BaseBox>
+        <BaseBox width={200} textOverflow="ellipsis" overflow="hidden">
+          Text Overflow Ellipsis. Text Overflow Ellipsis.
+        </BaseBox>
+      </Box>
+    </div>
+  );
+};
+
+export const Shadow = () => {
+  const BaseBox = (args: BoxProps) => (
+    <Box bgcolor="black" width={100} height={100} pa={2} ma={2} {...args} />
+  );
+
+  return (
+    <Box display="flex" justifyContent="space-between">
+      <BaseBox elevation={0}>0</BaseBox>
+      <BaseBox elevation={1}>1</BaseBox>
+      <BaseBox elevation={2}>2</BaseBox>
+      <BaseBox elevation={3}>3</BaseBox>
+      <BaseBox elevation={4}>4</BaseBox>
+      <BaseBox elevation={8}>8</BaseBox>
     </Box>
-    <Box color="green" bgcolor="black" ma={2} pa={2}>
-      Green
-    </Box>
-    <Box color="blue" bgcolor="black" ma={2} pa={2}>
-      Blue
-    </Box>
-    <Box color="white" bgcolor="red" ma={2} pa={2}>
-      Red
-    </Box>
-    <Box color="white" bgcolor="green" ma={2} pa={2}>
-      Green
-    </Box>
-    <Box color="white" bgcolor="blue" ma={2} pa={2}>
-      Blue
-    </Box>
-  </div>
-);
+  );
+};
+
+export const palette = () => {
+  const BaseBox = (args: BoxProps) => <Box pa={2} ma={2} {...args} />;
+
+  return (
+    <div>
+      <BaseBox color="red" bgcolor="black">
+        Red
+      </BaseBox>
+      <BaseBox color="green" bgcolor="black">
+        Green
+      </BaseBox>
+      <BaseBox color="blue" bgcolor="black">
+        Blue
+      </BaseBox>
+      <BaseBox color="white" bgcolor="red">
+        Red
+      </BaseBox>
+      <BaseBox color="white" bgcolor="green">
+        Green
+      </BaseBox>
+      <BaseBox color="white" bgcolor="blue">
+        Blue
+      </BaseBox>
+    </div>
+  );
+};
