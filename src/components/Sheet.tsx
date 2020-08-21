@@ -1,6 +1,5 @@
 import React, { ReactNode } from "react";
 import classnames from "classnames";
-import Box from "./system/Box";
 import styled from "styled-components";
 import { strToColor } from "../utils/strToColor";
 import { boxShadow } from "./system/shadow";
