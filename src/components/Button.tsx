@@ -1,5 +1,5 @@
 import React, { ReactNode, MouseEventHandler } from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import classnames from "classnames";
 import Ripples from "./Ripples";
 import { boxShadow } from "./system/shadow";
