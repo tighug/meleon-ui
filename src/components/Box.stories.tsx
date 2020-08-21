@@ -2,8 +2,8 @@ import React from "react";
 import Box, { BoxProps } from "./Box";
 
 export default {
-  component: Box,
   title: "Layout/Box",
+  component: Box,
   argTypes: {
     color: { control: "color" },
     bgcolor: { control: "color" },

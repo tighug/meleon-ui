@@ -1,19 +1,28 @@
 import React from "react";
-import Sheet from "./Sheet";
-import Box from "./system/Box";
+import Sheet, { SheetProps } from "./Sheet";
+import Box from "./Box";
 
 export default {
   title: "Surface/Sheet",
   component: Sheet,
+  argTypes: {
+    color: { control: "color" },
+  },
 };
 
-export const sheet = () => (
-  <Sheet height={100} width="auto" color="secondary" />
-);
+const Template = (args: SheetProps) => <Sheet {...args} />;
 
-export const outlined = () => <Sheet height={100} width="auto" outlined />;
+export const Basic = Template.bind({});
 
-export const rounded = () => <Sheet height={100} width="auto" rounded />;
+Basic.args = {
+  height: 100,
+  width: "auto",
+  color: "secondary",
+};
+
+export const outlined = () => <Sheet height={100} outlined />;
+
+export const rounded = () => <Sheet height={100} rounded />;
 
 export const elevation = () => (
   <Box display="flex" justifyContent="space-between">

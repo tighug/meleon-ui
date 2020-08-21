@@ -1,17 +1,18 @@
 import React from "react";
-import Button from "./Button";
-import Box from "./system/Box";
+import Button, { ButtonProps } from "./Button";
+import Box from "./Box";
 
 export default {
   title: "Input/Button",
   component: Button,
+  argTypes: {
+    color: { control: "color" },
+  },
 };
 
-export const button = () => (
-  <Box display="flex" flexDirection="column" alignItems="center">
-    <Button>Normal</Button>
-  </Box>
-);
+const Template = (args: ButtonProps) => <Button {...args}>Normal</Button>;
+
+export const Basic = Template.bind({});
 
 export const normal = () => (
   <Box display="flex" justifyContent="space-between">
