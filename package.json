@@ -45,8 +45,7 @@
     "typescript": "^3.9.7"
   },
   "scripts": {
-    "storybook": "start-storybook -p 6006",
-    "storybook-docs": "start-storybook --docs -p 6006",
-    "build-storybook": "build-storybook"
+    "storybook": "start-storybook --docs -p 6006",
+    "build-storybook": "build-storybook --docs"
   }
 }
