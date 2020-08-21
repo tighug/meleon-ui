@@ -1,6 +1,7 @@
 import React from "react";
 import Button, { ButtonProps } from "./Button";
 import Box from "./Box";
+import Icon from "./Icon";
 
 export default {
   title: "Input/Button",
@@ -14,7 +15,7 @@ const Template = (args: ButtonProps) => <Button {...args}>Normal</Button>;
 
 export const Basic = Template.bind({});
 
-export const normal = () => (
+export const Normal = () => (
   <Box display="flex" justifyContent="space-between">
     <Button>Normal</Button>
     <Button color="red">Red</Button>
@@ -24,13 +25,13 @@ export const normal = () => (
   </Box>
 );
 
-export const block = () => (
+export const Block = () => (
   <div>
     <Button block>Block</Button>
   </div>
 );
 
-export const depressed = () => {
+export const Depressed = () => {
   const BaseButton = (args: ButtonProps) => <Button depressed {...args} />;
 
   return (
@@ -44,63 +45,77 @@ export const depressed = () => {
   );
 };
 
-// export const fab = () => (
-//   <Box display="flex" justifyContent="space-around">
-//     <Button fab>
-//       <Icon icon={FaUser} />
-//     </Button>
-//     <Button fab color="primary">
-//       <Icon icon={FaUser} />
-//     </Button>
-//     <Button fab color="secondary">
-//       <Icon icon={FaUser} />
-//     </Button>
-//     <Button fab disabled>
-//       <Icon icon={FaUser} />
-//     </Button>
-//   </Box>
-// );
+export const Fab = () => {
+  const BaseButton = (args: ButtonProps) => <Button fab {...args} />;
 
-// export const icon = () => (
-//   <Box display="flex" justifyContent="space-around">
-//     <Button icon>
-//       <Icon icon={FaUser} />
-//     </Button>
-//     <Button icon color="primary">
-//       <Icon icon={FaUser} />
-//     </Button>
-//     <Button icon color="secondary">
-//       <Icon icon={FaUser} />
-//     </Button>
-//     <Button icon disabled>
-//       <Icon icon={FaUser} />
-//     </Button>
-//   </Box>
-// );
+  return (
+    <Box display="flex" justifyContent="space-around">
+      <BaseButton>
+        <Icon>account</Icon>
+      </BaseButton>
+      <BaseButton color="red">
+        <Icon>account</Icon>
+      </BaseButton>
+      <BaseButton color="green">
+        <Icon>account</Icon>
+      </BaseButton>
+      <BaseButton color="blue">
+        <Icon>account</Icon>
+      </BaseButton>
+      <BaseButton disabled>
+        <Icon>account</Icon>
+      </BaseButton>
+    </Box>
+  );
+};
 
-// export const withIcon = () => (
-//   <Box display="flex" justifyContent="space-around">
-//     <Button>
-//       <Icon icon={FaUser} left />
-//       Normal
-//     </Button>
-//     <Button color="primary" outlined>
-//       <Icon icon={FaUser} left />
-//       Primary
-//     </Button>
-//     <Button color="secondary" rounded>
-//       <Icon icon={FaUser} left />
-//       Secondary
-//     </Button>
-//     <Button disabled text>
-//       <Icon icon={FaUser} left />
-//       Disabled
-//     </Button>
-//   </Box>
-// );
+export const icon = () => (
+  <Box display="flex" justifyContent="space-around">
+    <Button icon>
+      <Icon>account</Icon>
+    </Button>
+    <Button icon color="red">
+      <Icon>account</Icon>
+    </Button>
+    <Button icon color="green">
+      <Icon>account</Icon>
+    </Button>
+    <Button icon color="blue">
+      <Icon>account</Icon>
+    </Button>
+    <Button icon disabled>
+      <Icon>account</Icon>
+    </Button>
+  </Box>
+);
 
-export const outlined = () => {
-  const BaseButton = (args: ButtonProps) => <Button depressed {...args} />;
+export const WithIcon = () => (
+  <Box display="flex" justifyContent="space-around">
+    <Button>
+      <Icon left>account</Icon>
+      Normal
+    </Button>
+    <Button color="red" outlined>
+      <Icon left>account</Icon>
+      Red
+    </Button>
+    <Button color="green" rounded>
+      Green
+      <Icon right>account</Icon>
+    </Button>
+    <Button color="blue" rounded>
+      Blue
+      <Icon right>account</Icon>
+    </Button>
+    <Button disabled text>
+      Disabled
+      <Icon right>account</Icon>
+    </Button>
+  </Box>
+);
+
+export const Outlined = () => {
+  const BaseButton = (args: ButtonProps) => <Button outlined {...args} />;
 
   return (
     <Box display="flex" justifyContent="space-around">
@@ -113,7 +128,7 @@ export const outlined = () => {
   );
 };
 
-export const rounded = () => {
+export const Rounded = () => {
   const BaseButton = (args: ButtonProps) => <Button rounded {...args} />;
 
   return (
@@ -127,7 +142,7 @@ export const rounded = () => {
   );
 };
 
-export const text = () => {
+export const Text = () => {
   const BaseButton = (args: ButtonProps) => <Button text {...args} />;
 
   return (
@@ -141,7 +156,7 @@ export const text = () => {
   );
 };
 
-export const tile = () => {
+export const Tile = () => {
   const BaseButton = (args: ButtonProps) => <Button tile {...args} />;
 
   return (

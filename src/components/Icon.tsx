@@ -28,7 +28,7 @@ export type IconProps = {
 
 export default function Icon({
   children,
-  color = "white",
+  color,
   size = "md",
   left = false,
   right = false,
@@ -42,7 +42,7 @@ export default function Icon({
   );
 }
 
-const Wrapper = styled.span<{ color: string; fontSize: string }>`
+const Wrapper = styled.span<{ color?: string; fontSize: string }>`
   font-size: ${(props) => props.fontSize};
   color: ${(props) => props.color};
 

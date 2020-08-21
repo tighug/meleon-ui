@@ -16,6 +16,7 @@ export const Basic = Template.bind({});
 
 Basic.args = {
   children: "account",
+  color: "white",
 };
 
 export const color = () => (
