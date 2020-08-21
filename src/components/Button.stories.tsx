@@ -30,23 +30,19 @@ export const block = () => (
   </div>
 );
 
-export const depressed = () => (
-  <Box display="flex" justifyContent="space-around">
-    <Button depressed>Normal</Button>
-    <Button depressed color="red">
-      Red
-    </Button>
-    <Button depressed color="green">
-      Green
-    </Button>
-    <Button depressed color="blue">
-      Blue
-    </Button>
-    <Button depressed disabled>
-      Disabled
-    </Button>
-  </Box>
-);
+export const depressed = () => {
+  const BaseButton = (args: ButtonProps) => <Button depressed {...args} />;
+
+  return (
+    <Box display="flex" justifyContent="space-around">
+      <BaseButton>Normal</BaseButton>
+      <BaseButton color="red">Red</BaseButton>
+      <BaseButton color="green">Green</BaseButton>
+      <BaseButton color="blue">Blue</BaseButton>
+      <BaseButton disabled>Disabled</BaseButton>
+    </Box>
+  );
+};
 
 // export const fab = () => (
 //   <Box display="flex" justifyContent="space-around">
@@ -103,74 +99,58 @@ export const depressed = () => (
 //   </Box>
 // );
 
-export const outlined = () => (
-  <Box display="flex" justifyContent="space-around">
-    <Button outlined>Normal</Button>
-    <Button outlined color="red">
-      Red
-    </Button>
-    <Button outlined color="green">
-      Green
-    </Button>
-    <Button outlined color="blue">
-      Blue
-    </Button>
-    <Button outlined disabled>
-      Disabled
-    </Button>
-  </Box>
-);
+export const outlined = () => {
+  const BaseButton = (args: ButtonProps) => <Button depressed {...args} />;
 
-export const rounded = () => (
-  <Box display="flex" justifyContent="space-around">
-    <Button rounded>Normal</Button>
-    <Button rounded color="red">
-      Red
-    </Button>
-    <Button rounded color="blue">
-      Blue
-    </Button>
-    <Button rounded color="green">
-      Green
-    </Button>
-    <Button rounded disabled>
-      Disabled
-    </Button>
-  </Box>
-);
+  return (
+    <Box display="flex" justifyContent="space-around">
+      <BaseButton>Normal</BaseButton>
+      <BaseButton color="red">Red</BaseButton>
+      <BaseButton color="green">Green</BaseButton>
+      <BaseButton color="blue">Blue</BaseButton>
+      <BaseButton disabled>Disabled</BaseButton>
+    </Box>
+  );
+};
 
-export const text = () => (
-  <Box display="flex" justifyContent="space-around">
-    <Button text>Normal</Button>
-    <Button text color="red">
-      Red
-    </Button>
-    <Button text color="green">
-      Green
-    </Button>
-    <Button text color="blue">
-      Blue
-    </Button>
-    <Button text disabled>
-      Disabled
-    </Button>
-  </Box>
-);
+export const rounded = () => {
+  const BaseButton = (args: ButtonProps) => <Button rounded {...args} />;
 
-export const tile = () => (
-  <Box display="flex" justifyContent="space-around">
-    <Button tile>Normal</Button>
-    <Button tile color="red">
-      Red
-    </Button>
-    <Button tile color="green">
-      Green
-    </Button>
-    <Button tile color="blue">
-      Blue
-    </Button>
-    <Button tile disabled>
-      Disabled
-    </Button>
-  </Box>
-);
+  return (
+    <Box display="flex" justifyContent="space-around">
+      <BaseButton>Normal</BaseButton>
+      <BaseButton color="red">Red</BaseButton>
+      <BaseButton color="blue">Blue</BaseButton>
+      <BaseButton color="green">Green</BaseButton>
+      <BaseButton disabled>Disabled</BaseButton>
+    </Box>
+  );
+};
+
+export const text = () => {
+  const BaseButton = (args: ButtonProps) => <Button text {...args} />;
+
+  return (
+    <Box display="flex" justifyContent="space-around">
+      <BaseButton>Normal</BaseButton>
+      <BaseButton color="red">Red</BaseButton>
+      <BaseButton color="green">Green</BaseButton>
+      <BaseButton color="blue">Blue</BaseButton>
+      <BaseButton disabled>Disabled</BaseButton>
+    </Box>
+  );
+};
+
+export const tile = () => {
+  const BaseButton = (args: ButtonProps) => <Button tile {...args} />;
+
+  return (
+    <Box display="flex" justifyContent="space-around">
+      <BaseButton>Normal</BaseButton>
+      <BaseButton color="red">Red</BaseButton>
+      <BaseButton color="green">Green</BaseButton>
+      <BaseButton color="blue">Blue</BaseButton>
+      <BaseButton disabled>Disabled</BaseButton>
+    </Box>
+  );
+};
