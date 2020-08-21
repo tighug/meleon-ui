@@ -17,12 +17,13 @@ interface IconProps {
   size?: "xs" | "sm" | "md" | "lg" | "xl";
   /** Sets the color. */
   color?: string;
+
+  /** Disables the click. */
+  disabled?: boolean;
   /** Places the icon on the left. (used inside a button) */
   left?: boolean;
   /** Places the icon on the right. (used inside a button) */
   right?: boolean;
-  /** Disables the click. */
-  disabled?: boolean;
 }
 
 export default function Icon({
