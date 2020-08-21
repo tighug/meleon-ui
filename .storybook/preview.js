@@ -1,7 +1,7 @@
 import { addDecorator } from "@storybook/react";
 import themeDecorator from "./themeDecorator";
 import { themes } from "@storybook/theming";
-import "ress";
+import "normalize.css";
 import "./index.css";
 import "@mdi/font/css/materialdesignicons.css";
 
