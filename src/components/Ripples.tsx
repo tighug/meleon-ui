@@ -12,7 +12,7 @@ export interface RipplesProps {
   disabled?: boolean;
 }
 
-export default function Ripples({ children, disabled = false }: RipplesProps) {
+export function Ripples({ children, disabled = false }: RipplesProps) {
   Children.only(children);
 
   const [ripples, setRipples] = useState<JSX.Element[]>([]);

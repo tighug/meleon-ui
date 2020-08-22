@@ -1,7 +1,7 @@
 import React from "react";
-import Button, { ButtonProps } from "./Button";
-import Box from "./Box";
-import Icon from "./Icon";
+import { Button, ButtonProps } from "./Button";
+import { Box } from "./Box";
+import { Icon } from "./Icon";
 
 export default {
   title: "Input/Button",

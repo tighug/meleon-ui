@@ -27,7 +27,7 @@ export type IconProps = {
   right?: boolean;
 };
 
-export default function Icon({
+export function Icon({
   children,
   color,
   size = "md",

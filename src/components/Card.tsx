@@ -1,9 +1,9 @@
 import React, { MouseEventHandler, ReactNode } from "react";
 import classnames from "classnames";
 import styled from "styled-components";
-import { boxShadow } from "./system/shadow";
+import { boxShadow } from "../system/shadow";
 import { nameToColor } from "../utils/nameToColor";
-import { SizingProps, sizing } from "./system/sizing";
+import { SizingProps, sizing } from "../system/sizing";
 
 export type CardProps = {
   /** children */
@@ -47,7 +47,7 @@ export type CardProps = {
   onClick?: MouseEventHandler;
 };
 
-export default function Card({
+export function Card({
   elevation = 2,
   outlined = false,
   rounded = false,

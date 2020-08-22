@@ -5,7 +5,7 @@ export type CardTextProps = {
   children?: ReactNode;
 };
 
-export default function CardText({ children }: CardTextProps) {
+export function CardText({ children }: CardTextProps) {
   return <StyledCardText>{children}</StyledCardText>;
 }
 

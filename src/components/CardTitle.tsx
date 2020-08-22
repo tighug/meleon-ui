@@ -7,7 +7,7 @@ export type CardTitleProps = {
   children?: ReactNode;
 };
 
-export default function CardTitle({ children }: CardTitleProps) {
+export function CardTitle({ children }: CardTitleProps) {
   return <StyledCardTitle>{children}</StyledCardTitle>;
 }
 

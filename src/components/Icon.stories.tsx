@@ -1,6 +1,6 @@
 import React from "react";
-import Box from "./Box";
-import Icon, { IconProps } from "./Icon";
+import { Box } from "./Box";
+import { Icon, IconProps } from "./Icon";
 
 export default {
   title: "Surface/Icon",

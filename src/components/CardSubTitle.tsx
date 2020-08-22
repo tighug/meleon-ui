@@ -6,7 +6,7 @@ export type CardSubTitleProps = {
   children?: ReactNode;
 };
 
-export default function CardSubTitle({ children }: CardSubTitleProps) {
+export function CardSubTitle({ children }: CardSubTitleProps) {
   return <StyledCardSubTitle>{children}</StyledCardSubTitle>;
 }
 

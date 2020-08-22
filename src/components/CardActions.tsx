@@ -6,7 +6,7 @@ export type CardActionsProps = {
   children?: ReactNode;
 };
 
-export default function CardActions({ children }: CardActionsProps) {
+export function CardActions({ children }: CardActionsProps) {
   return <StyledCardActions>{children}</StyledCardActions>;
 }
 
