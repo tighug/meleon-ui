@@ -46,6 +46,7 @@
   "scripts": {
     "storybook": "start-storybook --docs -p 6006",
     "build-storybook": "build-storybook --docs",
+    "deploy-storybook": "storybook-to-ghpages -o out",
     "build": "tsc",
     "prepare": "yarn build"
   }
