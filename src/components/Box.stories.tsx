@@ -1,5 +1,5 @@
 import React from "react";
-import Box, { BoxProps } from "./Box";
+import { Box, BoxProps } from "./Box";
 
 export default {
   title: "Layout/Box",

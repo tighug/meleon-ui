@@ -12,7 +12,7 @@ export interface RipplesProps {
   disabled?: boolean;
 }
 
-export default function Ripples({ children, disabled = false }: RipplesProps) {
+export function Ripples({ children, disabled = false }: RipplesProps) {
   Children.only(children);
 
   const [ripples, setRipples] = useState<JSX.Element[]>([]);
@@ -67,7 +67,7 @@ interface RippleProps {
   left: number;
 }
 
-const Ripple = styled.span<RippleProps>`
+export const Ripple = styled.span<RippleProps>`
   position: absolute;
   top: ${(props) => props.top}px;
   left: ${(props) => props.left}px;

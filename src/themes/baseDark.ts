@@ -1,7 +1,7 @@
 import * as palette from "meleon-palette";
-import { Theme } from "./Theme";
+import { Theme } from "../components/ThemeProvider";
 
-const standard: Theme = {
+export const baseDark: Theme = {
   normal: "#272727",
   primary: palette.teal.base,
   secondary: palette.deepOrange.base,
@@ -21,5 +21,3 @@ const standard: Theme = {
     dividers: "rgba(255, 255, 255, 0.12)",
   },
 };
-
-export default standard;

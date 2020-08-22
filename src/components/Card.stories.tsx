@@ -1,11 +1,11 @@
 import React from "react";
 import { Meta } from "@storybook/react/types-6-0";
-import Card, { CardProps } from "./Card";
-import CardTitle from "./CardTitle";
-import CardSubTitle from "./CardSubTitle";
-import CardText from "./CardText";
-import CardActions from "./CardActions";
-import Button from "./Button";
+import { Card, CardProps } from "./Card";
+import { CardTitle } from "./CardTitle";
+import { CardSubTitle } from "./CardSubTitle";
+import { CardText } from "./CardText";
+import { CardActions } from "./CardActions";
+import { Button } from "./Button";
 
 export default {
   title: "Surface/Card",

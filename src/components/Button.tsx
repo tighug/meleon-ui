@@ -1,8 +1,8 @@
 import React, { ReactNode, MouseEventHandler } from "react";
 import styled from "styled-components";
 import classnames from "classnames";
-import Ripples from "./Ripples";
-import { boxShadow } from "./system/shadow";
+import { Ripples } from "./Ripples";
+import { boxShadow } from "../system/shadow";
 import { nameToColor } from "../utils/nameToColor";
 
 const fontSize = {
@@ -48,7 +48,7 @@ export type ButtonProps = {
   onClick?: MouseEventHandler;
 };
 
-export default function Button({
+export function Button({
   size = "md",
   active = false,
   block = false,
@@ -78,12 +78,16 @@ export default function Button({
 
   return (
     <Ripples disabled={!ripple}>
-      <Wrapper className={className} fontSize={fontSize[size]} {...props} />
+      <StyledButton
+        className={className}
+        fontSize={fontSize[size]}
+        {...props}
+      />
     </Ripples>
   );
 }
 
-export const Wrapper = styled.button.attrs((props) => ({
+export const StyledButton = styled.button.attrs((props) => ({
   color: nameToColor(props.color, props.theme),
 }))<{ fontSize: string; color?: string }>`
   position: relative;

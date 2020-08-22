@@ -1,9 +1,9 @@
 import React from "react";
 import { ThemeProvider } from "styled-components";
-import standard from "../src/themes/standard";
+import { baseDark } from "../src/themes";
 
 const ThemeDecorator = (storyFn) => (
-  <ThemeProvider theme={standard}>{storyFn()}</ThemeProvider>
+  <ThemeProvider theme={baseDark}>{storyFn()}</ThemeProvider>
 );
 
 export default ThemeDecorator;

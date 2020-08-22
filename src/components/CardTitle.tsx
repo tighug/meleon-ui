@@ -1,17 +1,17 @@
 import React, { ReactNode } from "react";
 import styled from "styled-components";
-import { Wrapper as CardSubTitle } from "./CardSubTitle";
-import { Wrapper as CardText } from "./CardText";
+import { StyledCardSubTitle } from "./CardSubTitle";
+import { StyledCardText } from "./CardText";
 
 export type CardTitleProps = {
   children?: ReactNode;
 };
 
-export default function CardTitle({ children }: CardTitleProps) {
-  return <Wrapper>{children}</Wrapper>;
+export function CardTitle({ children }: CardTitleProps) {
+  return <StyledCardTitle>{children}</StyledCardTitle>;
 }
 
-const Wrapper = styled.div`
+export const StyledCardTitle = styled.div`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -22,12 +22,12 @@ const Wrapper = styled.div`
   letter-spacing: 0.0125em;
   word-break: break-break-all;
 
-  + ${CardSubTitle} {
+  + ${StyledCardSubTitle} {
     padding-top: 0;
     margin-top: -16px;
   }
 
-  + ${CardText} {
+  + ${StyledCardText} {
     padding-top: 0;
   }
 `;

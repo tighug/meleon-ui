@@ -1,9 +1,9 @@
 import React, { MouseEventHandler, ReactNode } from "react";
 import classnames from "classnames";
 import styled from "styled-components";
-import { boxShadow } from "./system/shadow";
+import { boxShadow } from "../system/shadow";
 import { nameToColor } from "../utils/nameToColor";
-import { SizingProps, sizing } from "./system/sizing";
+import { SizingProps, sizing } from "../system/sizing";
 
 export type CardProps = {
   /** children */
@@ -47,7 +47,7 @@ export type CardProps = {
   onClick?: MouseEventHandler;
 };
 
-export default function Card({
+export function Card({
   elevation = 2,
   outlined = false,
   rounded = false,
@@ -70,17 +70,17 @@ export default function Card({
     tile,
   });
 
-  return <Wrapper className={className} elevation={elevation} {...props} />;
+  return <StyledCard className={className} elevation={elevation} {...props} />;
 }
 
-type WrapperProps = {
+type StyledCardProps = {
   color?: string;
   elevation: number;
 };
 
-const Wrapper = styled.div.attrs((props) => ({
+export const StyledCard = styled.div.attrs((props) => ({
   color: nameToColor(props.color, props.theme),
-}))<WrapperProps & SizingProps>`
+}))<StyledCardProps & SizingProps>`
   ${sizing}
 
   color: ${(props) => props.theme.text.primary || "white"};

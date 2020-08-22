@@ -5,11 +5,11 @@ export type CardTextProps = {
   children?: ReactNode;
 };
 
-export default function CardText({ children }: CardTextProps) {
-  return <Wrapper>{children}</Wrapper>;
+export function CardText({ children }: CardTextProps) {
+  return <StyledCardText>{children}</StyledCardText>;
 }
 
-export const Wrapper = styled.div`
+export const StyledCardText = styled.div`
   width: 100%;
   padding: 16px;
   font-size: 0.875rem;
