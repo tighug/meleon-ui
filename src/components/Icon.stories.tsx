@@ -21,9 +21,9 @@ Basic.args = {
 
 export const color = () => (
   <Box display="flex" justifyContent="space-around">
-    <Icon color="red">account</Icon>
-    <Icon color="green">message</Icon>
-    <Icon color="blue">email</Icon>
+    <Icon color="primary">account</Icon>
+    <Icon color="secondary">message</Icon>
+    <Icon color="info">email</Icon>
   </Box>
 );
 
