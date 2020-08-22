@@ -1,10 +1,35 @@
-import React, { MouseEventHandler } from "react";
+import React, { MouseEventHandler, ReactNode } from "react";
 import classnames from "classnames";
 import styled from "styled-components";
-import Sheet, { SheetProps } from "./Sheet";
 import { boxShadow } from "./system/shadow";
+import { nameToColor } from "../utils/nameToColor";
+import { SizingProps, sizing } from "./system/sizing";
 
 export type CardProps = {
+  /** children */
+  children?: ReactNode;
+
+  /** Sets the color. */
+  color?: string;
+  /** Sets the elevation. */
+  elevation?: number;
+  /** Sets the width. */
+  width?: number | string;
+  /** Sets the max-width. */
+  maxWidth?: number | string;
+  /** Sets the min-width. */
+  minWidth?: number | string;
+  /** Sets the height. */
+  height?: number | string;
+  /** Sets the max-height. */
+  maxHeight?: number | string;
+  /** Sets the min-height. */
+  minHeight?: number | string;
+
+  /** Removes elevation & adds a thin border. */
+  outlined?: boolean;
+  /** Designates the border-radius applied to the component. */
+  rounded?: boolean;
   /** Disables the click. */
   disabled?: boolean;
   /** Removes the elevation. */
@@ -20,9 +45,12 @@ export type CardProps = {
 
   /** Event on click */
   onClick?: MouseEventHandler;
-} & SheetProps;
+};
 
 export default function Card({
+  elevation = 2,
+  outlined = false,
+  rounded = false,
   disabled = false,
   flat = false,
   hover = false,
@@ -31,23 +59,39 @@ export default function Card({
   tile = false,
   ...props
 }: CardProps) {
-  const className = classnames({ disabled, flat, hover, raised, ripple, tile });
+  const className = classnames({
+    outlined,
+    rounded,
+    disabled,
+    flat,
+    hover,
+    raised,
+    ripple,
+    tile,
+  });
 
-  return <Wrapper className={className} {...props} />;
+  return <Wrapper className={className} elevation={elevation} {...props} />;
 }
 
 type WrapperProps = {
-  className: string;
+  color?: string;
+  elevation: number;
 };
-const Wrapper = styled(Sheet)<WrapperProps>`
-  box-shadow: ${boxShadow(2)};
 
-  &.disabled {
-    color: rgba(255, 255, 255, 0.3);
-    pointer-events: none;
-    background-color: rgba(255, 255, 255, 0.12);
-    box-shadow: none;
-  }
+const Wrapper = styled.div.attrs((props) => ({
+  color: nameToColor(props.color, props.theme),
+}))<WrapperProps & SizingProps>`
+  ${sizing}
+
+  color: ${(props) => props.theme.text.primary || "white"};
+  background-color: ${(props) =>
+    props.color || props.theme.bg.secondary || "#303030"};
+  border: 0 solid;
+  border-color: ${(props) =>
+    props.theme.text.dividers || "rgba(255, 255, 255, 0.12)"};
+  border-radius: 0;
+  box-shadow: ${(props) => boxShadow(props.elevation)};
+
   &.flat {
     box-shadow: none;
   }
@@ -61,5 +105,20 @@ const Wrapper = styled(Sheet)<WrapperProps>`
   }
   &.tile {
     border-radius: 0;
+  }
+  &.outlined {
+    border-width: 1px;
+    box-shadow: none;
+  }
+  &.rounded {
+    border-radius: 4px;
+  }
+  &.disabled {
+    color: ${(props) =>
+      props.theme.text.disabled || "rgba(255, 255, 255, 0.3)"};
+    pointer-events: none;
+    background-color: ${(props) =>
+      props.theme.bg.disabled || "rgba(255, 255, 255, 0.12)"};
+    box-shadow: none;
   }
 `;

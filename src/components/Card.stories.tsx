@@ -22,9 +22,7 @@ const Template = (args: CardProps) => (
     <CardSubTitle>Card Sub Title</CardSubTitle>
     <CardText>
       Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-      commodo consequat.
+      tempor incididunt ut labore et dolore magna aliqua.
     </CardText>
     <CardActions>
       <Button text>Button</Button>
@@ -37,4 +35,11 @@ export const Basic = Template.bind({});
 
 Basic.args = {
   maxWidth: 350,
+};
+
+export const Outlined = Template.bind({});
+
+Outlined.args = {
+  maxWidth: 350,
+  outlined: true,
 };
