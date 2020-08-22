@@ -16,20 +16,42 @@ const Template = (args: ButtonProps) => <Button {...args}>Normal</Button>;
 export const Basic = Template.bind({});
 
 export const Normal = () => (
-  <Box display="flex" justifyContent="space-between">
-    <Button>Normal</Button>
-    <Button color="red">Red</Button>
-    <Button color="green">Green</Button>
-    <Button color="blue">Blue</Button>
-    <Button disabled>Disabled</Button>
-  </Box>
-);
-
-export const Block = () => (
   <div>
-    <Button block>Block</Button>
+    <Box display="flex" justifyContent="space-around">
+      <Button>Normal</Button>
+      <Button color="primary">Primary</Button>
+      <Button color="secondary">Secondary</Button>
+      <Button disabled>Disabled</Button>
+    </Box>
+    <Box display="flex" justifyContent="space-around" mt={6}>
+      <Button color="info">Info</Button>
+      <Button color="success">Success</Button>
+      <Button color="warning">Warning</Button>
+      <Button color="error">Error</Button>
+    </Box>
   </div>
 );
+
+export const Block = () => {
+  const BaseButton = (args: ButtonProps) => <Button block {...args} />;
+
+  return (
+    <div>
+      <Box>
+        <BaseButton>Block</BaseButton>
+      </Box>
+      <Box mt={4}>
+        <BaseButton color="primary">Primary</BaseButton>
+      </Box>
+      <Box mt={4}>
+        <BaseButton color="secondary">Secondary</BaseButton>
+      </Box>
+      <Box mt={4}>
+        <BaseButton disabled>Disabled</BaseButton>
+      </Box>
+    </div>
+  );
+};
 
 export const Depressed = () => {
   const BaseButton = (args: ButtonProps) => <Button depressed {...args} />;
@@ -37,9 +59,8 @@ export const Depressed = () => {
   return (
     <Box display="flex" justifyContent="space-around">
       <BaseButton>Normal</BaseButton>
-      <BaseButton color="red">Red</BaseButton>
-      <BaseButton color="green">Green</BaseButton>
-      <BaseButton color="blue">Blue</BaseButton>
+      <BaseButton color="primary">Primary</BaseButton>
+      <BaseButton color="secondary">Secondary</BaseButton>
       <BaseButton disabled>Disabled</BaseButton>
     </Box>
   );
@@ -53,13 +74,10 @@ export const Fab = () => {
       <BaseButton>
         <Icon>account</Icon>
       </BaseButton>
-      <BaseButton color="red">
+      <BaseButton color="primary">
         <Icon>account</Icon>
       </BaseButton>
-      <BaseButton color="green">
-        <Icon>account</Icon>
-      </BaseButton>
-      <BaseButton color="blue">
+      <BaseButton color="secondary">
         <Icon>account</Icon>
       </BaseButton>
       <BaseButton disabled>
@@ -74,13 +92,10 @@ export const icon = () => (
     <Button icon>
       <Icon>account</Icon>
     </Button>
-    <Button icon color="red">
+    <Button icon color="primary">
       <Icon>account</Icon>
     </Button>
-    <Button icon color="green">
-      <Icon>account</Icon>
-    </Button>
-    <Button icon color="blue">
+    <Button icon color="secondary">
       <Icon>account</Icon>
     </Button>
     <Button icon disabled>
@@ -95,16 +110,12 @@ export const WithIcon = () => (
       <Icon left>account</Icon>
       Normal
     </Button>
-    <Button color="red" outlined>
+    <Button color="primary" outlined>
       <Icon left>account</Icon>
-      Red
+      Primary
     </Button>
-    <Button color="green" rounded>
-      Green
-      <Icon right>account</Icon>
-    </Button>
-    <Button color="blue" rounded>
-      Blue
+    <Button color="secondary" rounded>
+      Secondary
       <Icon right>account</Icon>
     </Button>
     <Button disabled text>
@@ -120,9 +131,8 @@ export const Outlined = () => {
   return (
     <Box display="flex" justifyContent="space-around">
       <BaseButton>Normal</BaseButton>
-      <BaseButton color="red">Red</BaseButton>
-      <BaseButton color="green">Green</BaseButton>
-      <BaseButton color="blue">Blue</BaseButton>
+      <BaseButton color="primary">Primary</BaseButton>
+      <BaseButton color="secondary">Secondary</BaseButton>
       <BaseButton disabled>Disabled</BaseButton>
     </Box>
   );
@@ -134,9 +144,8 @@ export const Rounded = () => {
   return (
     <Box display="flex" justifyContent="space-around">
       <BaseButton>Normal</BaseButton>
-      <BaseButton color="red">Red</BaseButton>
-      <BaseButton color="blue">Blue</BaseButton>
-      <BaseButton color="green">Green</BaseButton>
+      <BaseButton color="primary">Primary</BaseButton>
+      <BaseButton color="secondary">Secondary</BaseButton>
       <BaseButton disabled>Disabled</BaseButton>
     </Box>
   );
@@ -148,9 +157,8 @@ export const Text = () => {
   return (
     <Box display="flex" justifyContent="space-around">
       <BaseButton>Normal</BaseButton>
-      <BaseButton color="red">Red</BaseButton>
-      <BaseButton color="green">Green</BaseButton>
-      <BaseButton color="blue">Blue</BaseButton>
+      <BaseButton color="primary">Primary</BaseButton>
+      <BaseButton color="secondary">Secondary</BaseButton>
       <BaseButton disabled>Disabled</BaseButton>
     </Box>
   );
@@ -162,9 +170,8 @@ export const Tile = () => {
   return (
     <Box display="flex" justifyContent="space-around">
       <BaseButton>Normal</BaseButton>
-      <BaseButton color="red">Red</BaseButton>
-      <BaseButton color="green">Green</BaseButton>
-      <BaseButton color="blue">Blue</BaseButton>
+      <BaseButton color="primary">Primary</BaseButton>
+      <BaseButton color="secondary">Secondary</BaseButton>
       <BaseButton disabled>Disabled</BaseButton>
     </Box>
   );
