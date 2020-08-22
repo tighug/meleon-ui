@@ -67,7 +67,7 @@ interface RippleProps {
   left: number;
 }
 
-const Ripple = styled.span<RippleProps>`
+export const Ripple = styled.span<RippleProps>`
   position: absolute;
   top: ${(props) => props.top}px;
   left: ${(props) => props.left}px;

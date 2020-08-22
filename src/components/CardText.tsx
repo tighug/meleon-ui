@@ -6,10 +6,10 @@ export type CardTextProps = {
 };
 
 export default function CardText({ children }: CardTextProps) {
-  return <Wrapper>{children}</Wrapper>;
+  return <StyledCardText>{children}</StyledCardText>;
 }
 
-export const Wrapper = styled.div`
+export const StyledCardText = styled.div`
   width: 100%;
   padding: 16px;
   font-size: 0.875rem;

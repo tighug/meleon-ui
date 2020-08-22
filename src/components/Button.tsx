@@ -78,12 +78,16 @@ export default function Button({
 
   return (
     <Ripples disabled={!ripple}>
-      <Wrapper className={className} fontSize={fontSize[size]} {...props} />
+      <StyledButton
+        className={className}
+        fontSize={fontSize[size]}
+        {...props}
+      />
     </Ripples>
   );
 }
 
-export const Wrapper = styled.button.attrs((props) => ({
+export const StyledButton = styled.button.attrs((props) => ({
   color: nameToColor(props.color, props.theme),
 }))<{ fontSize: string; color?: string }>`
   position: relative;

@@ -26,10 +26,10 @@ export type BoxProps = BaseProps &
   TypographyProps;
 
 export default function Box({ ...props }: BoxProps) {
-  return <BaseBox {...props} />;
+  return <StyledBox {...props} />;
 }
 
-export const BaseBox = styled.div<BoxProps>`
+export const StyledBox = styled.div<BoxProps>`
   ${border}
   ${display}
   ${flexbox}

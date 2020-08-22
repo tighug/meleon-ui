@@ -70,17 +70,17 @@ export default function Card({
     tile,
   });
 
-  return <Wrapper className={className} elevation={elevation} {...props} />;
+  return <StyledCard className={className} elevation={elevation} {...props} />;
 }
 
-type WrapperProps = {
+type StyledCardProps = {
   color?: string;
   elevation: number;
 };
 
-const Wrapper = styled.div.attrs((props) => ({
+export const StyledCard = styled.div.attrs((props) => ({
   color: nameToColor(props.color, props.theme),
-}))<WrapperProps & SizingProps>`
+}))<StyledCardProps & SizingProps>`
   ${sizing}
 
   color: ${(props) => props.theme.text.primary || "white"};

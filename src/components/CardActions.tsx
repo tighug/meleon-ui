@@ -1,21 +1,21 @@
 import React, { ReactNode } from "react";
 import styled from "styled-components";
-import { Wrapper as Button } from "./Button";
+import { StyledButton } from "./Button";
 
 export type CardActionsProps = {
   children?: ReactNode;
 };
 
 export default function CardActions({ children }: CardActionsProps) {
-  return <Wrapper>{children}</Wrapper>;
+  return <StyledCardActions>{children}</StyledCardActions>;
 }
 
-const Wrapper = styled.div`
+export const StyledCardActions = styled.div`
   display: flex;
   align-items: center;
   padding: 8px;
 
-  + ${Button} {
+  + ${StyledButton} {
     padding: 0 8px;
   }
 `;

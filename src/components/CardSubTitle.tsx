@@ -1,16 +1,16 @@
 import React, { ReactNode } from "react";
 import styled from "styled-components";
-import { Wrapper as CardText } from "./CardText";
+import { StyledCardText } from "./CardText";
 
 export type CardSubTitleProps = {
   children?: ReactNode;
 };
 
 export default function CardSubTitle({ children }: CardSubTitleProps) {
-  return <Wrapper>{children}</Wrapper>;
+  return <StyledCardSubTitle>{children}</StyledCardSubTitle>;
 }
 
-export const Wrapper = styled.div`
+export const StyledCardSubTitle = styled.div`
   padding: 16px;
   font-size: 0.875rem;
   font-weight: 400;
@@ -18,7 +18,7 @@ export const Wrapper = styled.div`
   color: ${(props) => props.theme.text.secondary || "rgba(255,255,255,0.7"};
   letter-spacing: 0.01em;
 
-  + ${CardText} {
+  + ${StyledCardText} {
     padding-top: 0;
   }
 `;

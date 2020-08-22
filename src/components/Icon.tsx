@@ -39,11 +39,11 @@ export default function Icon({
   const className = classnames(icon, { left, right, disabled });
 
   return (
-    <Wrapper className={className} color={color} fontSize={fontSize[size]} />
+    <StyledIcon className={className} color={color} fontSize={fontSize[size]} />
   );
 }
 
-const Wrapper = styled.span.attrs((props) => ({
+export const StyledIcon = styled.span.attrs((props) => ({
   color: nameToColor(props.color, props.theme),
 }))<{ color?: string; fontSize: string }>`
   position: relative;
