@@ -1,8 +1,9 @@
 import React, { ReactNode, MouseEventHandler } from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import classnames from "classnames";
 import Ripples from "./Ripples";
 import { boxShadow } from "./system/shadow";
+import { nameToColor } from "../utils/nameToColor";
 
 const fontSize = {
   xs: "10px",
@@ -40,7 +41,7 @@ export type ButtonProps = {
   /** Makes the border-radius zero. */
   tile?: boolean;
 
-  /** Applies the ripples effect on click. */
+  /** Applies the ripple effect on click. */
   ripple?: boolean;
 
   /** Event on click */
@@ -48,7 +49,6 @@ export type ButtonProps = {
 };
 
 export default function Button({
-  color = "#272727",
   size = "md",
   active = false,
   block = false,
@@ -78,17 +78,14 @@ export default function Button({
 
   return (
     <Ripples disabled={!ripple}>
-      <Wrapper
-        className={className}
-        fontSize={fontSize[size]}
-        color={color}
-        {...props}
-      />
+      <Wrapper className={className} fontSize={fontSize[size]} {...props} />
     </Ripples>
   );
 }
 
-const Wrapper = styled.button<{ fontSize: string; color: string }>`
+export const Wrapper = styled.button.attrs((props) => ({
+  color: nameToColor(props.color, props.theme),
+}))<{ fontSize: string; color?: string }>`
   position: relative;
   display: flex;
   align-items: center;
@@ -97,14 +94,20 @@ const Wrapper = styled.button<{ fontSize: string; color: string }>`
   padding: 0 1.2em;
   overflow: hidden;
   font-size: ${(props) => props.fontSize};
+  font-weight: 500;
   line-height: 22px;
-  color: white;
+  color: ${(props) => props.theme.text.primary || "#fff"};
   text-transform: uppercase;
   letter-spacing: 0.09em;
-  background-color: ${(props) => props.color};
+  vertical-align: middle;
+  background-color: ${(props) =>
+    props.color || props.theme.normal || "#272727"};
   border: 0 solid;
   border-radius: 4px;
   box-shadow: ${boxShadow(2)};
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.28s;
+  transition-property: box-shadow, transform, opacity;
 
   &:focus {
     outline: none;
@@ -133,12 +136,6 @@ const Wrapper = styled.button<{ fontSize: string; color: string }>`
   &.depressed {
     box-shadow: none;
   }
-  &.disabled {
-    color: rgba(255, 255, 255, 0.3);
-    pointer-events: none;
-    background-color: rgba(255, 255, 255, 0.12);
-    box-shadow: none;
-  }
   &.fab {
     width: 4em;
     height: 4em;
@@ -148,13 +145,13 @@ const Wrapper = styled.button<{ fontSize: string; color: string }>`
   &.icon {
     width: calc(4em - 20px);
     padding: 0;
-    color: ${(props) => props.color};
+    color: ${(props) => props.color || props.theme.normal || "#272727"};
     background-color: transparent;
     border-radius: 50%;
     box-shadow: none;
   }
   &.outlined {
-    color: ${(props) => props.color};
+    color: ${(props) => props.color || props.theme.text.primary || "#fff"};
     background-color: transparent;
     border-color: currentColor;
     border-width: 1px;
@@ -164,11 +161,24 @@ const Wrapper = styled.button<{ fontSize: string; color: string }>`
     border-radius: 28px;
   }
   &.text {
-    color: ${(props) => props.color};
+    color: ${(props) => props.color || props.theme.text.primary || "#fff"};
     background-color: transparent;
     box-shadow: none;
   }
   &.tile {
     border-radius: 0;
+  }
+  &.disabled {
+    color: ${(props) =>
+      props.theme.text.disabled || "rgba(255, 255, 255, 0.3)"};
+    pointer-events: none;
+    background-color: ${(props) =>
+      props.theme.text.dividers || "rgba(255, 255, 255, 0.12)"};
+    box-shadow: none;
+
+    &.text,
+    &.outlined {
+      background-color: transparent;
+    }
   }
 `;

@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import classnames from "classnames";
+import { nameToColor } from "../utils/nameToColor";
 
 const fontSize = {
   xs: "12px",
@@ -10,24 +11,25 @@ const fontSize = {
   xl: "40px",
 } as const;
 
-interface IconProps {
+export type IconProps = {
   children: string;
 
   /** Sets the font-size. */
   size?: "xs" | "sm" | "md" | "lg" | "xl";
   /** Sets the color. */
   color?: string;
+
+  /** Disables the click. */
+  disabled?: boolean;
   /** Places the icon on the left. (used inside a button) */
   left?: boolean;
   /** Places the icon on the right. (used inside a button) */
   right?: boolean;
-  /** Disables the click. */
-  disabled?: boolean;
-}
+};
 
 export default function Icon({
   children,
-  color = "white",
+  color,
   size = "md",
   left = false,
   right = false,
@@ -41,9 +43,17 @@ export default function Icon({
   );
 }
 
-const Wrapper = styled.span<{ color: string; fontSize: string }>`
+const Wrapper = styled.span.attrs((props) => ({
+  color: nameToColor(props.color, props.theme),
+}))<{ color?: string; fontSize: string }>`
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   font-size: ${(props) => props.fontSize};
-  color: ${(props) => props.color};
+  line-height: 1;
+  color: ${(props) => props.color || "white"};
+  vertical-align: middle;
 
   &.right {
     width: 1em;

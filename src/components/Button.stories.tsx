@@ -1,175 +1,178 @@
 import React from "react";
-import Button from "./Button";
-import Box from "./system/Box";
+import Button, { ButtonProps } from "./Button";
+import Box from "./Box";
+import Icon from "./Icon";
 
 export default {
   title: "Input/Button",
   component: Button,
+  argTypes: {
+    color: { control: "color" },
+  },
 };
 
-export const button = () => (
-  <Box display="flex" flexDirection="column" alignItems="center">
-    <Button>Normal</Button>
-  </Box>
-);
+const Template = (args: ButtonProps) => <Button {...args}>Normal</Button>;
 
-export const normal = () => (
-  <Box display="flex" justifyContent="space-between">
-    <Button>Normal</Button>
-    <Button color="red">Red</Button>
-    <Button color="green">Green</Button>
-    <Button color="blue">Blue</Button>
-    <Button disabled>Disabled</Button>
-  </Box>
-);
+export const Basic = Template.bind({});
 
-export const block = () => (
+export const Normal = () => (
   <div>
-    <Button block>Block</Button>
+    <Box display="flex" justifyContent="space-around">
+      <Button>Normal</Button>
+      <Button color="primary">Primary</Button>
+      <Button color="secondary">Secondary</Button>
+      <Button disabled>Disabled</Button>
+    </Box>
+    <Box display="flex" justifyContent="space-around" mt={6}>
+      <Button color="info">Info</Button>
+      <Button color="success">Success</Button>
+      <Button color="warning">Warning</Button>
+      <Button color="error">Error</Button>
+    </Box>
   </div>
 );
 
-export const depressed = () => (
+export const Block = () => {
+  const BaseButton = (args: ButtonProps) => <Button block {...args} />;
+
+  return (
+    <div>
+      <Box>
+        <BaseButton>Block</BaseButton>
+      </Box>
+      <Box mt={4}>
+        <BaseButton color="primary">Primary</BaseButton>
+      </Box>
+      <Box mt={4}>
+        <BaseButton color="secondary">Secondary</BaseButton>
+      </Box>
+      <Box mt={4}>
+        <BaseButton disabled>Disabled</BaseButton>
+      </Box>
+    </div>
+  );
+};
+
+export const Depressed = () => {
+  const BaseButton = (args: ButtonProps) => <Button depressed {...args} />;
+
+  return (
+    <Box display="flex" justifyContent="space-around">
+      <BaseButton>Normal</BaseButton>
+      <BaseButton color="primary">Primary</BaseButton>
+      <BaseButton color="secondary">Secondary</BaseButton>
+      <BaseButton disabled>Disabled</BaseButton>
+    </Box>
+  );
+};
+
+export const Fab = () => {
+  const BaseButton = (args: ButtonProps) => <Button fab {...args} />;
+
+  return (
+    <Box display="flex" justifyContent="space-around">
+      <BaseButton>
+        <Icon>account</Icon>
+      </BaseButton>
+      <BaseButton color="primary">
+        <Icon>account</Icon>
+      </BaseButton>
+      <BaseButton color="secondary">
+        <Icon>account</Icon>
+      </BaseButton>
+      <BaseButton disabled>
+        <Icon>account</Icon>
+      </BaseButton>
+    </Box>
+  );
+};
+
+export const icon = () => (
   <Box display="flex" justifyContent="space-around">
-    <Button depressed>Normal</Button>
-    <Button depressed color="red">
-      Red
+    <Button icon>
+      <Icon>account</Icon>
     </Button>
-    <Button depressed color="green">
-      Green
+    <Button icon color="primary">
+      <Icon>account</Icon>
     </Button>
-    <Button depressed color="blue">
-      Blue
+    <Button icon color="secondary">
+      <Icon>account</Icon>
     </Button>
-    <Button depressed disabled>
-      Disabled
+    <Button icon disabled>
+      <Icon>account</Icon>
     </Button>
   </Box>
 );
 
-// export const fab = () => (
-//   <Box display="flex" justifyContent="space-around">
-//     <Button fab>
-//       <Icon icon={FaUser} />
-//     </Button>
-//     <Button fab color="primary">
-//       <Icon icon={FaUser} />
-//     </Button>
-//     <Button fab color="secondary">
-//       <Icon icon={FaUser} />
-//     </Button>
-//     <Button fab disabled>
-//       <Icon icon={FaUser} />
-//     </Button>
-//   </Box>
-// );
-
-// export const icon = () => (
-//   <Box display="flex" justifyContent="space-around">
-//     <Button icon>
-//       <Icon icon={FaUser} />
-//     </Button>
-//     <Button icon color="primary">
-//       <Icon icon={FaUser} />
-//     </Button>
-//     <Button icon color="secondary">
-//       <Icon icon={FaUser} />
-//     </Button>
-//     <Button icon disabled>
-//       <Icon icon={FaUser} />
-//     </Button>
-//   </Box>
-// );
-
-// export const withIcon = () => (
-//   <Box display="flex" justifyContent="space-around">
-//     <Button>
-//       <Icon icon={FaUser} left />
-//       Normal
-//     </Button>
-//     <Button color="primary" outlined>
-//       <Icon icon={FaUser} left />
-//       Primary
-//     </Button>
-//     <Button color="secondary" rounded>
-//       <Icon icon={FaUser} left />
-//       Secondary
-//     </Button>
-//     <Button disabled text>
-//       <Icon icon={FaUser} left />
-//       Disabled
-//     </Button>
-//   </Box>
-// );
-
-export const outlined = () => (
+export const WithIcon = () => (
   <Box display="flex" justifyContent="space-around">
-    <Button outlined>Normal</Button>
-    <Button outlined color="red">
-      Red
+    <Button>
+      <Icon left>account</Icon>
+      Normal
     </Button>
-    <Button outlined color="green">
-      Green
+    <Button color="primary" outlined>
+      <Icon left>account</Icon>
+      Primary
     </Button>
-    <Button outlined color="blue">
-      Blue
+    <Button color="secondary" rounded>
+      Secondary
+      <Icon right>account</Icon>
     </Button>
-    <Button outlined disabled>
+    <Button disabled text>
       Disabled
+      <Icon right>account</Icon>
     </Button>
   </Box>
 );
 
-export const rounded = () => (
-  <Box display="flex" justifyContent="space-around">
-    <Button rounded>Normal</Button>
-    <Button rounded color="red">
-      Red
-    </Button>
-    <Button rounded color="blue">
-      Blue
-    </Button>
-    <Button rounded color="green">
-      Green
-    </Button>
-    <Button rounded disabled>
-      Disabled
-    </Button>
-  </Box>
-);
+export const Outlined = () => {
+  const BaseButton = (args: ButtonProps) => <Button outlined {...args} />;
 
-export const text = () => (
-  <Box display="flex" justifyContent="space-around">
-    <Button text>Normal</Button>
-    <Button text color="red">
-      Red
-    </Button>
-    <Button text color="green">
-      Green
-    </Button>
-    <Button text color="blue">
-      Blue
-    </Button>
-    <Button text disabled>
-      Disabled
-    </Button>
-  </Box>
-);
+  return (
+    <Box display="flex" justifyContent="space-around">
+      <BaseButton>Normal</BaseButton>
+      <BaseButton color="primary">Primary</BaseButton>
+      <BaseButton color="secondary">Secondary</BaseButton>
+      <BaseButton disabled>Disabled</BaseButton>
+    </Box>
+  );
+};
 
-export const tile = () => (
-  <Box display="flex" justifyContent="space-around">
-    <Button tile>Normal</Button>
-    <Button tile color="red">
-      Red
-    </Button>
-    <Button tile color="green">
-      Green
-    </Button>
-    <Button tile color="blue">
-      Blue
-    </Button>
-    <Button tile disabled>
-      Disabled
-    </Button>
-  </Box>
-);
+export const Rounded = () => {
+  const BaseButton = (args: ButtonProps) => <Button rounded {...args} />;
+
+  return (
+    <Box display="flex" justifyContent="space-around">
+      <BaseButton>Normal</BaseButton>
+      <BaseButton color="primary">Primary</BaseButton>
+      <BaseButton color="secondary">Secondary</BaseButton>
+      <BaseButton disabled>Disabled</BaseButton>
+    </Box>
+  );
+};
+
+export const Text = () => {
+  const BaseButton = (args: ButtonProps) => <Button text {...args} />;
+
+  return (
+    <Box display="flex" justifyContent="space-around">
+      <BaseButton>Normal</BaseButton>
+      <BaseButton color="primary">Primary</BaseButton>
+      <BaseButton color="secondary">Secondary</BaseButton>
+      <BaseButton disabled>Disabled</BaseButton>
+    </Box>
+  );
+};
+
+export const Tile = () => {
+  const BaseButton = (args: ButtonProps) => <Button tile {...args} />;
+
+  return (
+    <Box display="flex" justifyContent="space-around">
+      <BaseButton>Normal</BaseButton>
+      <BaseButton color="primary">Primary</BaseButton>
+      <BaseButton color="secondary">Secondary</BaseButton>
+      <BaseButton disabled>Disabled</BaseButton>
+    </Box>
+  );
+};

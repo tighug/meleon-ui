@@ -13,7 +13,7 @@ export type BorderProps = {
 };
 
 export const border = css<BorderProps>`
-  border-color: ${(props) => props.borderColor};
+  border-color: ${(props) => props.borderColor || "white"};
   border-style: ${(props) => props.borderStyle || "solid"};
   border-top-width: ${(props) => props.borderTop || props.border || 0}px;
   border-right-width: ${(props) => props.borderRight || props.border || 0}px;
