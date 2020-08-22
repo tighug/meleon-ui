@@ -23,6 +23,7 @@
     "@storybook/addon-essentials": "^6.0.16",
     "@storybook/addon-links": "^6.0.16",
     "@storybook/react": "^6.0.16",
+    "@storybook/storybook-deployer": "^2.8.6",
     "@types/classnames": "^2.2.10",
     "@types/styled-components": "^5.1.2",
     "@typescript-eslint/eslint-plugin": "^3.9.0",
