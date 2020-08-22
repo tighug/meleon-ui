@@ -43,8 +43,14 @@ export default function Icon({
 }
 
 const Wrapper = styled.span<{ color?: string; fontSize: string }>`
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   font-size: ${(props) => props.fontSize};
+  line-height: 1;
   color: ${(props) => props.color};
+  vertical-align: middle;
 
   &.right {
     width: 1em;
