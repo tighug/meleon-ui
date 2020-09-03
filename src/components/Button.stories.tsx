@@ -2,6 +2,7 @@ import React from "react";
 import { Button, ButtonProps } from "./Button";
 import { Box } from "./Box";
 import { Icon } from "./Icon";
+import { Meta } from "@storybook/react/types-6-0";
 
 export default {
   title: "Input/Button",
@@ -9,7 +10,7 @@ export default {
   argTypes: {
     color: { control: "color" },
   },
-};
+} as Meta;
 
 const Template = (args: ButtonProps) => <Button {...args}>Normal</Button>;
 
