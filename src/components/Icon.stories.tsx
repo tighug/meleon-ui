@@ -1,6 +1,7 @@
 import React from "react";
 import { Box } from "./Box";
 import { Icon, IconProps } from "./Icon";
+import { Meta } from "@storybook/react/types-6-0";
 
 export default {
   title: "Surface/Icon",
@@ -8,7 +9,7 @@ export default {
   argTypes: {
     color: { control: "color" },
   },
-};
+} as Meta;
 
 const Template = (args: IconProps) => <Icon {...args} />;
 
