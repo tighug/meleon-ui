@@ -50,15 +50,13 @@ export function TreeView({
       setOpenItems((oldItems) => oldItems.filter((item) => item !== id));
     }
   };
-  const clickLabelHandler = (id: number) => {
-    setSelected(id);
-  };
+  const clickLabelHandler = (id: number) => setSelected(id);
 
   const fixedChildren = (
     children: ReactElement[],
     depth: number
-  ): ReactElement[] => {
-    return Children.map(children, (child) => {
+  ): ReactElement[] =>
+    Children.map(children, (child) => {
       const grandchildren: ReactElement[] = child.props.children;
       const fixedGrandchildren =
         Children.count(grandchildren) > 0
@@ -80,7 +78,6 @@ export function TreeView({
         depth,
       });
     });
-  };
 
   return (
     <Wrapper fontSize={fontSize[size]}>{fixedChildren(children, 0)}</Wrapper>
