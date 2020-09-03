@@ -1,5 +1,6 @@
 import React from "react";
 import { Box, BoxProps } from "./Box";
+import { Meta } from "@storybook/react/types-6-0";
 
 export default {
   title: "Layout/Box",
@@ -9,7 +10,7 @@ export default {
     bgcolor: { control: "color" },
     borderColor: { control: "color" },
   },
-};
+} as Meta;
 
 const Template = (args: BoxProps) => <Box {...args} />;
 
