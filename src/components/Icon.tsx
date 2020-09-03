@@ -12,7 +12,7 @@ const fontSize = {
 } as const;
 
 export type IconProps = {
-  children: string;
+  children?: string;
 
   /** Sets the font-size. */
   size?: "xs" | "sm" | "md" | "lg" | "xl";
@@ -52,7 +52,7 @@ export const StyledIcon = styled.span.attrs((props) => ({
   justify-content: center;
   font-size: ${(props) => props.fontSize};
   line-height: 1;
-  color: ${(props) => props.color || "white"};
+  color: ${(props) => props.color};
   vertical-align: middle;
 
   &.right {
