@@ -14,7 +14,7 @@ const fontSize = {
 } as const;
 
 export type ButtonProps = {
-  children: ReactNode;
+  children?: ReactNode;
 
   /** Sets the font-size. */
   size?: "xs" | "sm" | "md" | "lg" | "xl";
@@ -100,7 +100,7 @@ export const StyledButton = styled.button.attrs((props) => ({
   font-size: ${(props) => props.fontSize};
   font-weight: 500;
   line-height: 22px;
-  color: ${(props) => props.theme.text.primary || "#fff"};
+  color: ${(props) => props.theme.text.primary};
   text-transform: uppercase;
   letter-spacing: 0.09em;
   vertical-align: middle;
@@ -149,13 +149,13 @@ export const StyledButton = styled.button.attrs((props) => ({
   &.icon {
     width: calc(4em - 20px);
     padding: 0;
-    color: ${(props) => props.color || props.theme.normal || "#272727"};
+    color: ${(props) => props.color || props.theme.text.primary};
     background-color: transparent;
     border-radius: 50%;
     box-shadow: none;
   }
   &.outlined {
-    color: ${(props) => props.color || props.theme.text.primary || "#fff"};
+    color: ${(props) => props.color || props.theme.text.primary};
     background-color: transparent;
     border-color: currentColor;
     border-width: 1px;
@@ -165,7 +165,7 @@ export const StyledButton = styled.button.attrs((props) => ({
     border-radius: 28px;
   }
   &.text {
-    color: ${(props) => props.color || props.theme.text.primary || "#fff"};
+    color: ${(props) => props.color || props.theme.text.primary};
     background-color: transparent;
     box-shadow: none;
   }
@@ -181,7 +181,8 @@ export const StyledButton = styled.button.attrs((props) => ({
     box-shadow: none;
 
     &.text,
-    &.outlined {
+    &.outlined,
+    &.icon {
       background-color: transparent;
     }
   }
