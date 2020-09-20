@@ -1,9 +1,9 @@
 import { Theme } from "../components/ThemeProvider";
 
-export function nameToColor(name?: string, theme?: Theme): string {
-  if (name === undefined || theme === undefined) return "";
+export function str2color(str?: string, theme?: Theme): string | undefined {
+  if (str === undefined || theme === undefined) return undefined;
 
-  switch (name) {
+  switch (str) {
     case "normal":
       return theme.normal;
     case "primary":
@@ -19,6 +19,6 @@ export function nameToColor(name?: string, theme?: Theme): string {
     case "warning":
       return theme.warning;
     default:
-      return name;
+      return str;
   }
 }

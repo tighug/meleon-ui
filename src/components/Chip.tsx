@@ -1,7 +1,7 @@
 import React, { ReactNode } from "react";
 import styled from "styled-components";
 import classnames from "classnames";
-import { nameToColor } from "../utils/nameToColor";
+import { str2color } from "../utils/str2color";
 import { Ripples } from "./Ripples";
 
 export type ChipProps = {
@@ -39,7 +39,7 @@ export function Chip({
 }
 
 export const StyledSpan = styled.span.attrs((props) => ({
-  color: nameToColor(props.color, props.theme),
+  color: str2color(props.color, props.theme),
 }))<{ color?: string }>`
   position: relative;
   display: inline-flex;

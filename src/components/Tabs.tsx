@@ -1,6 +1,6 @@
 import React, { ReactElement, Children, cloneElement, useState } from "react";
 import styled from "styled-components";
-import { nameToColor } from "../utils/nameToColor";
+import { str2color } from "../utils/str2color";
 
 export type TabsProps = {
   children?: ReactElement | ReactElement[];
@@ -33,7 +33,7 @@ export function Tabs({ children, color, accent }: TabsProps) {
 }
 
 export const StyledTabs = styled.div.attrs((props) => ({
-  color: nameToColor(props.color, props.theme),
+  color: str2color(props.color, props.theme),
 }))<{ color?: string }>`
   display: inline-flex;
   color: ${(props) => props.theme.text.disabled};

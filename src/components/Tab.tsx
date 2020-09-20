@@ -1,7 +1,7 @@
 import React, { ReactNode } from "react";
 import styled from "styled-components";
 import classnames from "classnames";
-import { nameToColor } from "../utils/nameToColor";
+import { str2color } from "../utils/str2color";
 
 export type TabProps = {
   children?: ReactNode;
@@ -36,7 +36,7 @@ export type StyledTabProps = {
 };
 
 export const StyledTab = styled.div.attrs((props) => ({
-  accent: nameToColor(props.color, props.theme),
+  accent: str2color(props.color, props.theme),
 }))`
   display: flex;
   align-items: center;
