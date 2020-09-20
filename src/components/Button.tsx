@@ -3,7 +3,7 @@ import styled from "styled-components";
 import classnames from "classnames";
 import { Ripples } from "./Ripples";
 import { boxShadow } from "../system/shadow";
-import { nameToColor } from "../utils/nameToColor";
+import { str2color } from "../utils/str2color";
 
 const fontSize = {
   xs: "10px",
@@ -88,7 +88,7 @@ export function Button({
 }
 
 export const StyledButton = styled.button.attrs((props) => ({
-  color: nameToColor(props.color, props.theme),
+  color: str2color(props.color, props.theme),
 }))<{ fontSize: string; color?: string }>`
   position: relative;
   display: flex;

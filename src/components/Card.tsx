@@ -2,7 +2,7 @@ import React, { MouseEventHandler, ReactNode } from "react";
 import classnames from "classnames";
 import styled from "styled-components";
 import { boxShadow } from "../system/shadow";
-import { nameToColor } from "../utils/nameToColor";
+import { str2color } from "../utils/str2color";
 import { SizingProps, sizing } from "../system/sizing";
 
 export type CardProps = {
@@ -79,7 +79,7 @@ type StyledCardProps = {
 };
 
 export const StyledCard = styled.div.attrs((props) => ({
-  color: nameToColor(props.color, props.theme),
+  color: str2color(props.color, props.theme),
 }))<StyledCardProps & SizingProps>`
   ${sizing}
 

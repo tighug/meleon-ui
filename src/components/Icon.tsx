@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import classnames from "classnames";
-import { nameToColor } from "../utils/nameToColor";
+import { str2color } from "../utils/str2color";
 
 const fontSize = {
   xs: "12px",
@@ -44,7 +44,7 @@ export function Icon({
 }
 
 export const StyledIcon = styled.span.attrs((props) => ({
-  color: nameToColor(props.color, props.theme),
+  color: str2color(props.color, props.theme),
 }))<{ color?: string; fontSize: string }>`
   position: relative;
   display: inline-flex;
