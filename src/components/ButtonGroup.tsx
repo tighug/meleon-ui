@@ -82,6 +82,7 @@ const StyledDiv = styled.div.attrs((props: StyledDivProps) => ({
     }
     &.active {
       color: ${(props) => props.color || props.theme.primary};
+      pointer-events: none;
       opacity: 1;
     }
   }
