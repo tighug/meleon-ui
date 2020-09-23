@@ -2,6 +2,8 @@ import { Meta } from "@storybook/react/types-6-0";
 import React, { useState } from "react";
 import { ButtonGroup, ButtonGroupProps } from "./ButtonGroup";
 import { Button } from "./Button";
+import { Icon } from "./Icon";
+import { Box } from "./Box";
 
 export default {
   title: "Input/ButtonGroup",
@@ -13,14 +15,37 @@ export default {
 } as Meta;
 
 const Template = (args: ButtonGroupProps) => {
-  const [selected, setSelected] = useState(0);
+  const [selectedText, setSelectedText] = useState(0);
+  const [selectedIcon, setSelectedIcon] = useState(0);
   const textItems = ["One", "Two", "Three"].map((item, i) => (
-    <Button key={i} active={selected === i} onClick={() => setSelected(i)}>
+    <Button
+      key={i}
+      active={selectedText === i}
+      onClick={() => setSelectedText(i)}
+    >
       {item}
     </Button>
   ));
+  const iconItems = [
+    "format-align-left",
+    "format-align-center",
+    "format-align-right",
+  ].map((item, i) => (
+    <Button
+      key={i}
+      active={selectedIcon === i}
+      onClick={() => setSelectedIcon(i)}
+    >
+      <Icon>{item}</Icon>
+    </Button>
+  ));
 
-  return <ButtonGroup {...args}>{textItems}</ButtonGroup>;
+  return (
+    <Box display="flex" justifyContent="space-around">
+      <ButtonGroup {...args}>{textItems}</ButtonGroup>
+      <ButtonGroup {...args}>{iconItems}</ButtonGroup>
+    </Box>
+  );
 };
 
 export const Basic = Template.bind({});
