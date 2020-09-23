@@ -1,23 +1,23 @@
 import React, { ReactNode, MouseEventHandler } from "react";
-import styled from "styled-components";
+import styled, { DefaultTheme } from "styled-components";
 import classnames from "classnames";
 import { Ripples } from "./Ripples";
 import { boxShadow } from "../system/shadow";
 import { str2color } from "../utils/str2color";
 
-const fontSize = {
+export type Size = "xs" | "sm" | "md" | "lg" | "xl";
+export const fontSize = {
   xs: "10px",
   sm: "12px",
   md: "14px",
   lg: "16px",
   xl: "18px",
 } as const;
-
 export type ButtonProps = {
   children?: ReactNode;
 
   /** Sets the font-size. */
-  size?: "xs" | "sm" | "md" | "lg" | "xl";
+  size?: Size;
   /** Sets the color. */
   color?: string;
 
@@ -78,18 +78,21 @@ export function Button({
 
   return (
     <Ripples disabled={!ripple}>
-      <StyledButton
-        className={className}
-        fontSize={fontSize[size]}
-        {...props}
-      />
+      <StyledButton className={className} size={size} {...props} />
     </Ripples>
   );
 }
 
-export const StyledButton = styled.button.attrs((props) => ({
+type StyledButtonProps = {
+  color?: string;
+  size: Size;
+  theme?: DefaultTheme;
+};
+
+export const StyledButton = styled.button.attrs((props: StyledButtonProps) => ({
   color: str2color(props.color, props.theme),
-}))<{ fontSize: string; color?: string }>`
+  size: fontSize[props.size],
+}))<StyledButtonProps>`
   position: relative;
   display: flex;
   align-items: center;
@@ -97,7 +100,7 @@ export const StyledButton = styled.button.attrs((props) => ({
   height: calc(4em - 20px);
   padding: 0 1.2em;
   overflow: hidden;
-  font-size: ${(props) => props.fontSize};
+  font-size: ${(props) => props.size};
   font-weight: 500;
   line-height: 22px;
   color: ${(props) => props.theme.text.primary};
@@ -132,6 +135,12 @@ export const StyledButton = styled.button.attrs((props) => ({
 
   &:hover:before {
     opacity: 0.2;
+  }
+
+  &.active {
+    &:before {
+      opacity: 0.24;
+    }
   }
 
   &.block {
