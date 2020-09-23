@@ -107,6 +107,7 @@ export const StyledButton = styled.button.attrs((props: StyledButtonProps) => ({
   text-transform: uppercase;
   letter-spacing: 0.09em;
   vertical-align: middle;
+  cursor: pointer;
   background-color: ${(props) =>
     props.color || props.theme.normal || "#272727"};
   border: 0 solid;
@@ -130,7 +131,6 @@ export const StyledButton = styled.button.attrs((props: StyledButtonProps) => ({
     background-color: currentColor;
     border-radius: inherit;
     opacity: 0;
-    transition: opacity 0.1s cubic-bezier(0.4, 0, 0.6, 1);
   }
 
   &:hover:before {
