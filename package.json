@@ -1,13 +1,12 @@
 {
   "name": "meleon-ui",
   "version": "1.0.0",
-  "description": "Material Component Framework for React",
+  "description": "Material React Component for Meleon",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "repository": "https://github.com/tighug/meleon-ui.git",
-  "author": "tighug <kapuriko123@gmail.com>",
+  "author": "tighug <tighug.4696@gmail.com>",
   "license": "MIT",
-  "private": false,
   "dependencies": {
     "classnames": "^2.3.1",
     "meleon-palette": "^1.0.2",
