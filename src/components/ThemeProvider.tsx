@@ -1,6 +1,5 @@
 import React, { ReactNode } from "react";
 import { ThemeProvider as TP } from "styled-components";
-import { baseDark } from "../themes";
 
 export type Theme = {
   normal: string;
@@ -34,7 +33,7 @@ export function ThemeProvider({
   children,
   theme,
 }: ThemeProviderProps) {
-  const baseTheme = dark ? baseDark : baseDark;
+  const baseTheme = {};
   const fixedTheme = Object.assign(baseTheme, theme);
 
   return <TP theme={fixedTheme}>{children}</TP>;
