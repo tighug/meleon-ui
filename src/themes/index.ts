@@ -1,1 +1,1 @@
-export * from "./baseDark";
+export * from "./dark";

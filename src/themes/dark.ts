@@ -1,7 +1,7 @@
 import * as palette from "meleon-palette";
 import { Theme } from "../components/ThemeProvider";
 
-export const baseDark: Theme = {
+export const dark: Theme = {
   normal: "#272727",
   primary: palette.teal.base,
   secondary: palette.deepOrange.base,
