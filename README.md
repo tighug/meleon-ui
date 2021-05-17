@@ -6,7 +6,7 @@ Demo is [here](https://tighug.github.io/meleon-ui).
 
 ## Features
 
-- Support for dynamic color theme
+- Support for theming
 - Support for TypeScript
 
 ## Installation
