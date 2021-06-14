@@ -52,7 +52,7 @@ export const StyledIcon = styled.span.attrs((props) => ({
   justify-content: center;
   font-size: ${(props) => props.fontSize};
   line-height: 1;
-  color: ${(props) => props.color || "white"};
+  color: ${(props) => props.color};
   vertical-align: middle;
 
   &.right {
