@@ -51,7 +51,7 @@
     "storybook": "start-storybook -p 6006",
     "deploy-storybook": "storybook-to-ghpages",
     "build": "tsc",
-    "prepare": "yarn build",
+    "prepublishOnly": "yarn build",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage"
