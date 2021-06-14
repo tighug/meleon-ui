@@ -1,3 +1,4 @@
+import { Story } from "@storybook/react/types-6-0";
 import React from "react";
 import { Box, BoxProps } from "./Box";
 
@@ -11,7 +12,7 @@ export default {
   },
 };
 
-const Template = (args: BoxProps) => <Box {...args} />;
+const Template: Story<BoxProps> = (args) => <Box {...args} />;
 
 export const Basic = Template.bind({});
 
