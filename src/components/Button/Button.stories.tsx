@@ -1,7 +1,8 @@
 import React from "react";
 import { Button, ButtonProps } from "./Button";
-import { Box } from "./Box";
-import { Icon } from "./Icon";
+import { Box } from "@components/Box";
+import { Icon } from "@components/Icon";
+import { Story } from "@storybook/react/types-6-0";
 
 export default {
   title: "Input/Button",
@@ -11,7 +12,9 @@ export default {
   },
 };
 
-const Template = (args: ButtonProps) => <Button {...args}>Normal</Button>;
+const Template: Story<ButtonProps> = (args) => (
+  <Button {...args}>Normal</Button>
+);
 
 export const Basic = Template.bind({});
 
