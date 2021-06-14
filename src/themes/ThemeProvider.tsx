@@ -1,31 +1,11 @@
 import React, { ReactNode } from "react";
 import { ThemeProvider as TP } from "styled-components";
-
-export type Theme = {
-  normal: string;
-  primary: string;
-  secondary: string;
-  error: string;
-  info: string;
-  success: string;
-  warning: string;
-  bg: {
-    primary: string;
-    secondary: string;
-    disabled: string;
-  };
-  text: {
-    primary: string;
-    secondary: string;
-    disabled: string;
-    dividers: string;
-  };
-};
+import { Theme } from "./Theme";
 
 export type ThemeProviderProps = {
   children?: ReactNode;
   dark?: boolean;
-  theme?: Record<string, unknown>;
+  theme?: Theme;
 };
 
 export function ThemeProvider({

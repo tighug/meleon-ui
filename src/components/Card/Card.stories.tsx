@@ -1,11 +1,11 @@
 import React from "react";
-import { Meta } from "@storybook/react/types-6-0";
+import { Meta, Story } from "@storybook/react/types-6-0";
 import { Card, CardProps } from "./Card";
 import { CardTitle } from "./CardTitle";
 import { CardSubTitle } from "./CardSubTitle";
 import { CardText } from "./CardText";
 import { CardActions } from "./CardActions";
-import { Button } from "./Button";
+import { Button } from "../Button";
 
 export default {
   title: "Surface/Card",
@@ -16,7 +16,7 @@ export default {
   },
 } as Meta;
 
-const Template = (args: CardProps) => (
+const Template: Story<CardProps> = (args) => (
   <Card {...args}>
     <CardTitle>Card Title</CardTitle>
     <CardSubTitle>Card Sub Title</CardSubTitle>

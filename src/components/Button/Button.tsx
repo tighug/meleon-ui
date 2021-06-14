@@ -1,9 +1,9 @@
 import React, { ReactNode, MouseEventHandler } from "react";
 import styled from "styled-components";
 import classnames from "classnames";
-import { Ripples } from "./Ripples";
-import { boxShadow } from "../system/shadow";
-import { nameToColor } from "../utils/nameToColor";
+import { boxShadow } from "@systems/shadow";
+import { nameToColor } from "@utils/nameToColor";
+import { Ripples } from "../Ripples";
 
 const fontSize = {
   xs: "10px",

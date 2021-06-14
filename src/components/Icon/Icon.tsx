@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import classnames from "classnames";
-import { nameToColor } from "../utils/nameToColor";
+import { nameToColor } from "@utils/nameToColor";
 
 const fontSize = {
   xs: "12px",

@@ -1,9 +1,9 @@
 import React, { MouseEventHandler, ReactNode } from "react";
 import classnames from "classnames";
 import styled from "styled-components";
-import { boxShadow } from "../system/shadow";
-import { nameToColor } from "../utils/nameToColor";
-import { SizingProps, sizing } from "../system/sizing";
+import { boxShadow } from "@systems/shadow";
+import { SizingProps, sizing } from "@systems/sizing";
+import { nameToColor } from "@utils/nameToColor";
 
 export type CardProps = {
   /** children */

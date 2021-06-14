@@ -1,6 +1,7 @@
 import React from "react";
-import { Box } from "./Box";
+import { Box } from "@components/Box";
 import { Icon, IconProps } from "./Icon";
+import { Story } from "@storybook/react/types-6-0";
 
 export default {
   title: "Surface/Icon",
@@ -10,7 +11,7 @@ export default {
   },
 };
 
-const Template = (args: IconProps) => <Icon {...args} />;
+const Template: Story<IconProps> = (args) => <Icon {...args} />;
 
 export const Basic = Template.bind({});
 

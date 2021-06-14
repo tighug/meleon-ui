@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
 import styled from "styled-components";
-import { StyledButton } from "./Button";
+import { StyledButton } from "@components/Button";
 
 export type CardActionsProps = {
   children?: ReactNode;
