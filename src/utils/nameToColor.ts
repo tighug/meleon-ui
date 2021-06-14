@@ -1,4 +1,4 @@
-import { Theme } from "../components/ThemeProvider";
+import { Theme } from "@themes/Theme";
 
 export function nameToColor(name?: string, theme?: Theme): string {
   if (name === undefined || theme === undefined) return "";
