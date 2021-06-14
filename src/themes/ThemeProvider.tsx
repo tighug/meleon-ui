@@ -9,6 +9,7 @@ export type ThemeProviderProps = {
 };
 
 export function ThemeProvider({
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   dark = false,
   children,
   theme,
