@@ -36,7 +36,7 @@
     "jest": "^27.0.1",
     "jest-styled-components": "^7.0.4",
     "prettier": "^2.3.0",
-    "semantic-release": "^17.4.3",
+    "semantic-release": "^19.0.3",
     "storybook-dark-mode": "^1.0.8",
     "stylelint": "^13.13.1",
     "stylelint-config-prettier": "^8.0.2",
